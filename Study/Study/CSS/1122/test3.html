@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NAVER</title>
+    <style>
+        .parent1{
+            /* border:1px solid red; */
+            width: 450px;
+        }
+        .parent1 > div{
+            /* border:1px solid red; */
+            /* width: 70px; */
+            display:inline;
+            margin: 5px;
+        }
+
+        .aa{
+            /* border:1px solid red; */
+            width: 450px;
+            padding-left:0px;
+        }
+        .aa > li{
+            /* border:1px solid red; */
+            display:inline;
+            margin:5px;
+            color:green;
+            font-weight:900;
+        }
+
+
+        #wrap{
+            margin: 0 auto;
+            border: 1px solid red;
+            width:500px;
+            height:600px;
+            
+                     
+        }
+
+        #wrap .content{
+            border: 1px solid green;
+            display:inline-block;
+            width:49%;
+            height:100%;
+            vertical-align: top;
+        }
+
+        #wrap .content > div{
+            border: 1px solid blue;
+            height:49%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="parent1">
+        <div>메일</div>
+        <div>카페</div>
+        <div>블로그</div>
+        <div>지식IN</div>
+        <div>쇼핑</div>
+        <div>쇼핑LIVE</div>
+        <div>Pay</div>
+        <div>TV</div>
+    </div>
+    <hr>
+    <ul class="aa">
+        <li>메일</li>
+        <li>카페</li>
+        <li>블로그</li>
+        <li>지식IN</li>
+        <li>쇼핑</li>
+        <li>쇼핑LIVE</li>
+        <li>Pay</li>
+        <li>TV</li>
+    </ul>
+
+
+    <hr>
+
+    <div id="wrap">
+        <div class="content">
+            <div>
+                위
+            </div>
+            <div>
+                아래
+            </div>
+        </div>
+        <div class="content">
+            <div>
+                위
+            </div>
+            <div>
+                아래
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+
+</body>
+</html>
