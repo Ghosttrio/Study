@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p {
+                border: 1px solid red;
+            }
+            #h1{
+                background-color: aqua;
+            }
+            .center {
+                text-align: center;
+            }
+            .red {
+                color: red;
+            }
+
+            [class~="red"]{
+                color: red;
+            }
+            /* .red와 같다 */
+
+            .large{
+                font-size:200%;
+            }
+            a[target] {
+                font-weight:900;
+                border: 1px solid red;
+            }
+            /* target속성을 가지고 있는 네이버만 적용된다. */
+            /* a 요소 중에 []안 어트리뷰트를 갖는 모든 요소 */
+            /* a 중에서 []안 속성을 가지고 있는 값 */
+            [target="_self"] {
+                color: brown;
+            }
+            /* a를 빼도 가능 */
+            h1[id="h1"]{
+                color: red;
+                text-align: center;
+                font-size:300%;
+                border: 10px solid green;
+            }
+            /* h1 요소 중에 title 어트리뷰트 값 중 first라는 독립된 단어를 포함하는 값 */
+        
+            /* 셀렉터[어트리뷰트|="값"] 하이픈까지 포함하는 요소*/
+            
+            p[id^="id_"]{
+                background-color: chartreuse;
+            }
+            /* 중요)셀렉터[어트리뷰터^="값"] 값으로 시작하는 요소를 선택*/
+        
+            a[href$=".net"]{
+                color:rgb(230, 222, 65);
+            }
+            /* .net로 끝나는 요소 선택 */
+
+            /* 셀렉터[어트리뷰트*="값"] 지정된 어트리뷰트 값을 포함하는 요소를 선택한다. */
+        
+            /* div 요소의 후손요소 중 p 요소 */
+            div span p { 
+                font-size:40px;
+                color: red; 
+            }
+
+            div > p {
+                color: midnightblue;
+            }
+            /* div 바로 아래 자식인 p 만 적용 */
+
+            /* p 요소의 형제 요소 중에 p 요소 바로 뒤에 위치하는 ul 요소를 선택한다. */
+            p + ul { 
+                font-size:30px;
+                color: brown;
+            }
+
+            /* p 요소의 형제 요소 중에 p 요소 뒤에 위치하는 ul 요소를 모두 선택한다.*/
+            p.p2 ~ ul { background-color:yellow; }  
+            /* p.p2 : p이면서 클래스 p2를 가지고 있는 요소 */
+            p + ul li {
+                border: 2px solid red;
+            }
+            p + ul > li {
+                border: 2px dotted blue;
+            }
+           
+
+
+            /* a 요소가 hover 상태일 때 */
+            a:hover { color: red; }
+            /* input 요소가 focus 상태일 때 */
+            input:focus { background-color: yellow; }
+
+            img[src]{
+                width:500px;
+            }
+            img[src]:hover {
+                width:1000px;
+            }
+            /* 링크셀렉터 */
+
+            input[type="checkbox"]:checked + span{
+                color:red;
+            }
+
+            /* p 요소 중에서 첫번째 자식을 선택 */
+            p:first-child { 
+                background-color: rgb(73, 200, 255); 
+            }
+            /* body도 적용, h1이 안된이유는 p가 첫번째가 아니라서 */
+
+            /* p 요소 중에서 마지막 자식을 선택 */
+            /* body 요소의 두번째 p 요소는 마지막 자식 요소가 아니다.
+            body 요소의 마지막 자식 요소는 div 요소이다. */
+            p:last-child { color: blue; }
+
+
+
+
+
+            #nth  ol {
+                border:2px dotted red;
+            }
+            /* div#nth > ol {
+                border:2px dotted red;
+            } */
+            #nth  ol li:nth-child(2n+1){
+                color:green;
+
+            }
+            #nth ul li:nth-child(2){
+                color:red;
+            }
+            #nth ul li:nth-child(10){
+                color:red;
+            }
+            /* css 에러는 적용이 안될뿐 표시는 없다. */
+
+            div.of_type p:nth-child(2){
+                background-color: red;
+                font-size:40px;
+            }
+            div.of_type p:nth-of-type(1){
+                background-color: yellow;
+            }
+
+            input:not(input.ex){
+                background-color: darkkhaki;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="h1">Class 선택자 테스트</h1>
+        <p id="idid_1" class="center red large">p1</p>
+        <!-- 여러개를 입력할 때 띄어쓰기로 입력 -->
+        <p id="id_2" class="red large">p2</p>
+        <p id="id_3" class="center">p3</p>
+        <a href="http://www.naver.com" target="_blank">네이버</a>
+        <a href="http://www.google.com">구글</a>
+        <a href="http://www.daum.net" target="_self">다음</a>
+    
+        <h1>Heading</h1>
+        <div>
+          <p>paragraph 1</p>
+          <p>paragraph 2</p>
+          <span>
+                <p>paragraph 3</p>
+          </span>
+        </div>
+        <p>paragraph 4</p>
+    
+    
+    
+        <div>A div element.</div>
+        <ul>
+          <li>Coffee</li>
+          <li>Tea</li>
+          <li>Milk</li>
+        </ul>
+      
+        <p class="p2">The first paragraph.</p>
+        <ul>
+          <li>Coffee</li>
+          <li>Tea</li>
+          <li>Milk</li>
+        </ul>
+      
+        <h2>Another list</h2>
+        <ul>
+          <li>Coffee</li>
+          <li>Tea</li>
+          <li>Milk</li>
+        </ul>
+    
+        <img src="https://ssl.pstatic.net/melona/libs/1423/1423003/443ec90757862b751b55_20221118153441041.jpg">
+
+
+
+
+
+        <a href="#">Hover me</a><br><br>
+        <input type="text" placeholder="focus me">
+
+
+
+        <input type="checkbox">
+        <span>글씨</span>
+
+
+        <p>This paragraph is the first child of its parent (body).</p>
+
+        <h1>Welcome to My Homepage</h1>
+        <p>This paragraph is not the first child of its parent.</p>
+        
+        <div>
+          <p>This paragraph is the first child of its parent (div).</p>
+          <p>This paragraph is not the first child of its parent.</p>
+        </div>
+
+
+        <div id="nth">
+            <ol>
+                <li>Espresso</li>
+                <li>Americano</li>
+                <li>Caffe Latte</li>
+                <li>Caffe Mocha</li>
+                <li>Caramel Latte</li>
+                <li>Cappuccino</li>
+            </ol>
+        
+            <ul>
+               <li>Espresso</li>
+                <li>Americano</li>
+                <li>Caffe Latte</li>
+                <li>Caffe Mocha</li>
+                <li>Caramel Latte</li>
+                <li>Cappuccino</li> 
+            </ul>
+            
+        </div>
+
+        <div class="of_type">
+            <div>첫번째 div</div>
+            <p>두번째 p</p>
+            <span>세번째</span>
+        </div>
+
+        <input type="text" value="Text input">
+        <input class="ex" type="email" value="email input">
+        <input type="password" value="Password input">
+
+
+        <!-- ::selection {
+            color: red;
+            background: yellow;
+          } -->
+          <!-- :: 모든요소 -->
+
+          <!-- before와 after은 java script로 수정할 수 없다. -->
+    
+    
+    
+    
+    </body>
+
+</html>
