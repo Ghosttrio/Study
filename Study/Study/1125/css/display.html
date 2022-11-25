@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <style>
+                a, span.test_span, strong {
+                    border: 1px solid red;
+                    width: 100px;
+                    height: 100px;
+                    margin: 20px;
+                    padding: 20px;
+                    display: inline-block;
+                }
+                .a {
+                    border : 1px solid red;
+                    height : 150px;
+                    width : 150px;
+                
+                    margin : 10px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .a div {
+                    border : 1px solid blue;
+                    margin : 5px;
+                    padding : 5px;
+                    display : inline-block;
+                }
+                span {
+                    border: 1px solid red;
+                }
+                span > div {
+                    border: 1px solid blue;
+                }
+            </style>
+        </head>
+        <body>
+            <a href="http://www.naver.com">네이버</a>
+            <span class="test_span">span</span>
+<!--공간 --><strong>strong</strong>
+            <hr>
+            <div class="a">
+                <div>목록1</div>
+                <div>목록2</div>
+            </div>
+            <div class="a">
+                <div>목록1</div>
+                <div>목록2</div>
+                <div>목록3</div>
+            </div>
+
+            <hr>
+
+            <span>
+                123
+                <div>
+                    div
+                </div>
+            </span>
+            <!-- 이래서 inline 안에 block을 되도록 사용하지 않는다. -->
+
+        </body>
+    </html>
+
+</DOCTYPE>
