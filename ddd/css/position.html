@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 모바일 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body { 
+            /* margin: 0; */
+            /* 기본적으로 body에는 margin이 포함되어 있다. */
+            width: 2000px;
+            height:2000px;
+        }
+        div {
+            border: 1px solid red;
+        }
+
+        /* [class~="parent"] */
+        .parent {
+            width: 100px;
+            margin: 50px;
+            padding: 20px;
+            background-color: gray;
+            color: black;
+            overflow: hidden;
+        }
+
+        .parent .child {
+            background-color: #f009;
+            /* background-color: #ff000099; */
+        }
+
+        .parent .relative {
+            position: relative;
+            left: -50px;
+            top: 50px;
+        }
+        .parent .relative2 {
+            position: relative;
+            color:black;
+            height:50px;
+            
+        }
+        .parent .absolute {
+            position: absolute;
+            /* top: 50px;
+            left: 50px; */
+            bottom: 0px;
+            right: 0px;
+        }
+        /* absolute는 공간을 차지하지 않는다. */
+        /* absolute는 스크롤에 따라서 움직이지 않는다. */
+        .fixed {
+            position: fixed;
+            right: 100px;
+            bottom:0px;
+            margin:0px;
+        }
+        /* 뷰포트 기준으로 고정 */
+        .sticky {
+            position: sticky;
+            top: 70px;
+            left: 40px;
+
+        }
+ 
+        .r1 {
+            top:10px;
+            left:10px;
+            background-color: red;
+            z-index: 0;
+        }
+        .r2 {
+            top:-10px;
+            left:-10px;
+            background-color: green;
+            z-index: 1;
+            
+        }
+        .r3 {
+            top:-20px;
+            left:-20px;
+            background-color: blue;
+            z-index: 2;
+        }
+        .r4 {
+            top:-30px;
+            left:-30px;
+            background-color: yellow;
+        }
+
+        .overflow {
+            width: 200px;
+            height: 97px;
+            
+        }
+        .oh { 
+            overflow: hidden;
+        }
+
+        /* 다양한 이미지를 모아놓고 원하는 
+        부분 빼고 전부 hidden해버리면 속도를 늘릴 수 있다. */
+
+
+    </style>
+</head>
+<body>
+    <div id="top" class="parent">
+        부모
+        <div class="child">
+            자식<br>
+            다음줄
+        </div>
+        <div>
+            글씨 몇개
+        </div>
+    </div>
+    <div class="parent">
+        부모
+        <div class="child relative">
+            자식<br>
+            다음줄
+        </div>
+        <div>
+            글씨 몇개
+        </div>
+    </div>
+    <div class="parent" style="position: relative">
+        부모
+        <div class="child absolute">
+            자식<br>
+            다음줄
+        </div>
+        <div>
+            글씨 몇개
+        </div>
+    </div>
+    <div class="parent">
+        부모
+        <div class="child absolute">
+            자식<br>
+            다음줄
+        </div>
+        <div>
+            글씨 몇개
+        </div>
+    </div>
+    
+    <div class="parent fixed">
+        <a href="#top">맨 위로</a>
+    </div>
+
+    <div class="parent sticky">
+        sticky
+    </div>
+    <div class="parent">
+        <div class="relative2 r1">
+            1번
+        </div>
+        <div class="relative2 r2">
+            2번
+        </div>
+
+        <div class="relative2 r3">
+            3번
+        </div>
+
+        <div class="relative2 r4">
+            4번
+        </div>
+
+    </div>
+
+    <div class="overflow oh">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus adipisci earum voluptatum omnis, numquam esse reprehenderit sunt repellendus iusto optio modi et a dignissimos provident quisquam in. Aspernatur, corporis saepe.
+    </div>
+    <div class="overflow os">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus adipisci earum voluptatum omnis, numquam esse reprehenderit sunt repellendus iusto optio modi et a dignissimos provident quisquam in. Aspernatur, corporis saepe.
+    </div>
+
+    
+</body>
+</html>

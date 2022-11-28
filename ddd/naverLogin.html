@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .wrap {
+            width:600px;
+            height: 800px;
+            margin: 0 auto;
+        }
+        .language {
+            width: 600px;
+            position: relative;
+            left: 500px;
+        }
+        .logo{
+            margin-top: 100px;
+            margin-bottom: 30px;
+            position: relative;
+            text-align: center;
+        }
+
+        .id, .useone, .qr {
+            width: 190px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+        }
+        .idpassword {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .loginButton{
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .checkbox div {
+            margin-top: 20px;
+            width: 200px;
+            display: inline-block;
+        }
+        .ip {
+            margin-left: 180px;
+            text-align: right;
+        }
+        .box {
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        .signUp {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .signUp div{
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .copyright {
+            margin-top: 50px;
+            font-size: 10px;
+        }
+        .a{
+            text-align: center;
+        }
+        .b{
+            margin-top: 5px;
+            text-align: center;
+        }
+        .a div{
+            display: inline-block;
+        }
+        .loginType div{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-top :none;
+            border-radius: 10px;
+          
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- wrap -->
+    <div class="wrap">
+        <!-- language -->
+        <div class="language">
+            <select name="language">
+                <option value="한국어" selected>한국어</option>             
+                <option value="English" selected>English</option>
+                <option value="中國語(簡體)" selected>中國語(簡體)</option>
+                <option value="中國語(繁体)" selected>中國語(繁体)</option>
+            </select>
+        </div>
+        <!-- logo -->
+        <div class="logo">
+            <img src="../image/logonaver.jpg">
+        </div>
+        <!-- loginBox -->
+        <div class="box">
+            <!-- loginType -->
+            <div class="loginType">
+                <div class="id">
+                    ID 로그인
+                </div>
+                <div class="useone">
+                    일회용 번호
+                </div>
+                <div class="qr">
+                    QR코드
+                </div>
+            </div>
+            <!-- idpassword -->
+            <div class="idpassword">
+                <div>
+                    <input type="text" style="width:500px;height:30px">
+                </div>
+                <div>
+                    <input type="text" style="width:500px;height:30px">
+                </div>
+            </div>
+            <!-- checkbox -->
+            <div class="checkbox">
+                <div>
+                    <input type="checkbox">로그인 상태 유지
+                </div>
+                <div class="ip">
+                    IP보안<input type="checkbox">
+                </div>
+            </div>
+            <!-- loginButton -->
+            <div class="loginButton">
+                <img src="../image/login.jpg">
+            </div>
+        </div>
+        <!-- signUp -->
+        <div class="signUp">
+            <div>
+                비밀번호 찾기
+            </div>
+            <div>
+                아이디 찾기
+            </div>
+            <div>
+                회원가입
+            </div>
+        </div>
+        <!-- ad -->
+        <div>
+            <a href="https://channelsearch.naver.com/service/issue04_2/?pcode=naver_pclogin_issue4_A"><img src="https://ssl.pstatic.net/melona/libs/1378/1378592/101d04ff86ab8081f73b_20221121171902112.jpg" width="600" height="150"></a>
+        </div>
+        <!-- copyright -->
+        <div class="copyright">
+            <div class="a">
+                <div>
+                    이용약관
+                </div>
+                <div>
+                    개인정보처리방침
+                </div>
+                <div>
+                    책임의 한계와 법적고지
+                </div>
+                <div>
+                    회원정보 고객센터
+                </div>
+            </div>
+            <div class="b">
+                    <img src="../image/logonaver.jpg" width="50px" height="15px"> Copyright ⓒ NAVER Corp. All Rights Reserved.>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

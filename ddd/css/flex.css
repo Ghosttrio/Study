@@ -1,0 +1,42 @@
+.flex-container {
+    border: 1px solid green;
+    height: 300px;
+    /* width: 800px; */
+    
+    display: flex;
+    /* flex-direction: row; */
+    
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+    /* flex-wrap:wrap; */
+    /* flex-wrap:wrap-reverse; */
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+    /* space-evenly 전부 균등하게 */
+
+    /* align 세로방향 */
+    /* justify 가로방향 */
+    align-items: center;
+    /* stretch가 기본값이다. */
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    
+    align-content: stretch;
+}
+.flex-container .flex-item{
+    border: 1px solid red;
+    background-color: brown;
+    color: white;
+    width: 80px;
+    /* flex-grow: 1; */
+   
+}
+.flex-container .flex-item:nth-of-type(3){
+    /* order: 1; */
+    /* flex-grow: 2; */
+    /* flex-shrink: 4; */
+    flex-basis:50px;
+    align-self: baseline;
+}
+
+/* display grid */
