@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #big {
+            width:500px;
+            height: 500px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            document.querySelector("#small img").style.display = "none";
+            document.querySelector("#big").addEventListener("mouseover", function(){
+                document.querySelector("#big").style.display = "none";
+                document.querySelector("#small img").style.display = "block";
+                document.querySelector("#small img").style.width = "500px";
+                document.querySelector("#small img").style.height = "500px";
+            })
+            document.querySelector("#big").addEventListener("mouseout", function(){
+                document.querySelector("#big").style.display = "block";
+                document.querySelector("#small img").style.display = "none";
+            })
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="big">
+        <img src="https://developer.android.com/static/images/jetpack/compose/graphics-sourceimageland.jpg?hl=ko" width="500px" height="500px">
+    </div>
+    <div id="small">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf784XO9KY0uuEbW69ptORpYlO2uPA7Ae-nPUsUvMHOn778cTNq_hosvUa8fDrNvaphRc&usqp=CAU" width="500px" height="500px">
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        table thead {
+            font-size: 40px;
+            color: rgb(2, 25, 75);
+        }
+        table tbody {
+            font-size: 20px;
+        }
+        #tbody tr td {
+            margin : 0 auto;
+        }
+
+        
+    </style>
+
+    <script>
+        let xhr = new XMLHttpRequest();
+        let url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst";
+        url += "?";
+        url += "serviceKey=WBr28mekYd5PPj%2FX37EMeQ3IULgBIcc7jV3p%2F1yQBc4jvT2BPs4JxAxGusA8O7LCrojnwykHxxDNJcGCKf4Beg%3D%3D";
+        url += "&";
+        url += "numOfRows=100";
+        url += "&";
+        url += "pageNo=1";
+        url += "&";
+        url += "dataType=JSON";
+        url += "&";
+        url += "base_date=20221206";
+        url += "&";
+        url += "base_time=0400";
+        url += "&";
+        url += "nx=63";
+        url += "&";
+        url += "ny=100";
+        xhr.open("get", url);
+        xhr.send();
+
+        xhr.onload = function () {
+
+            let data = JSON.parse(xhr.responseText);
+            let arr = ["시간"];
+            let arr1 = ["온도"];
+            let arr2 = ["습도"];
+
+            for (info of data.response.body.items.item) {
+                
+                if (info.category == "T1H") {
+                    arr.push(info.fcstTime);
+                    arr1.push(info.fcstValue+"℃");
+                }
+                if (info.category == "REH") {
+                    arr2.push(info.fcstValue+"%");
+                }
+
+            }
+
+            let members = [arr, arr1, arr2];
+
+            let html = "";
+
+            for(let i=0; i<members.length; i++){
+                html += "<tr>";
+
+                for(let j=0; j<members[i].length; j++){
+                    html += "<th>"+ members[i][j] +"</th>";
+                }
+
+                html += "</tr>";
+            }
+
+            document.querySelector("#tbody").innerHTML = html;
+       
+        }
+
+    </script>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+               <th colspan="7" style="background-color: rgb(194, 222, 235);">천안시 날씨</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border : 1px solid red;
+        }
+        #div1 {
+            width:500px;
+        }
+        #div2 {
+            width:300px;
+        }
+        #smile{
+            position: absolute;
+            top:100px;
+            left:10px;
+        }
+    </style>
+    <script>
+        // 동기식 출력
+        // function func1() {
+        //     console.log('func1');
+        //     func2();
+        // }
+
+        // function func2() {
+        //     console.log('func2');
+        //     func3();
+        // }
+
+        // function func3() {
+        //     console.log('func3');
+        // }
+
+        // func1();
+
+
+        // 비동기식 출력
+        // function func1() {
+        //     console.log('func1');
+        //     func2();
+        // }
+
+        // function func2() {
+        //     setTimeout(function () {
+        //         console.log('func2');
+        //     }, 0);
+
+        //     func3();
+        // }
+
+        // function func3() {
+        //     console.log('func3');
+        // }
+
+        // func1();
+
+        window.onload = function(){
+
+            document.querySelector("#id").value = 123;
+
+            // let btns = document.querySelectorAll(".btn1")
+            // btns[0].addEventListener("click", function(){
+            //     alert("안녕");
+            // location.href = "http://naver.com" : 자바스크립트로 페이지 이동하는 법
+            // btns[0].addEventListener("click", fnclick);
+            // })
+
+            let divs = document.querySelectorAll(".class_div");
+            for(let i=0; i<divs.length; i++){
+                divs[i].addEventListener("click", fnclick);
+            }
+
+            let tag_a = document.querySelector("#div2 a")
+            tag_a.addEventListener("click", function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("a 클릭");
+            })
+        // onclick에다 적을경우 return false
+        
+
+            let body = document.querySelector("body");
+            body.addEventListener("resize", function(){
+                console.log(window.innerWidth);
+            })
+            document.querySelector("#input1").addEventListener("keyup", function(){
+                document.querySelector("#msg").innerHTML = "키보드 뗌";
+                
+            })
+        
+            document.querySelector("#input1").addEventListener("keydown", function(event){
+            document.querySelector("#msg").innerHTML = "키보드 눌림 : " + event.keyCode;
+                
+            console.log(event.shiftKey)
+            if(event.shiftKey && event.keyCode == 38){
+                    let val = smile.style.top;
+                    let vals = val.split("px"); // ["150"]
+                    let top = vals[0];
+                    let result_top = parseInt(top)-1;
+                    smile.style.top = result_top + "px";
+                
+                }
+              
+            })
+
+            let smile = document.querySelector("#smile");
+            smile.style.top = "550px"
+            console.log(smile.style.top)
+
+            document.querySelector("#id").addEventListener("keyup",function(event){
+               if(event.keyCode == 13) {
+                document.querySelector("#pw").focus();
+               }
+            })
+            document.querySelector("#pw").addEventListener("keyup",function(event){
+               if(event.keyCode == 13) {
+                document.querySelector("#btn2").click();
+               }
+            })
+            document.querySelector("#btn2").addEventListener("click", function(event){
+                let id = document.querySelector("#id").value;
+                let pw = document.querySelector("#pw").value;
+                if(id == "1" && pw == "2"){
+                    alert("로그인!!");      
+                } else {
+                    alert("계정이 틀립니다");
+                }
+            })
+            document.querySelector("#sel").addEventListener("change",function(event){
+                console.log(document.querySelector("#sel").value)
+            })
+            
+
+        }
+
+        function fnclick(event){
+            event.stopPropagation();
+            console.log(event.target)
+            // alert("click")
+        }
+        // .target 클릭된요소, 실제 이벤트가 발생한 dom
+        // .currentTarget 어디 dom에 이벤트가 걸렸는지
+        
+        // remove할일이있으면 function 밖으로 빼야한다.
+
+    </script>
+</head>
+
+<body>
+    <button class="btn1" type="button">클릭</button>
+
+    <div id="div1" class="class_div">
+        div1
+        <div id="div2" class="class_div">
+            div2
+            <a href="http://naver.com">네이버</a>
+        </div>
+    </div>
+
+    <input type="text" id="input1">
+    <div id="msg"></div>
+
+    <img id = "smile" src="http://1.247.146.31:8011/assets/image/positive.webp" width="100">
+
+    <div>
+        아이디 : <input type="text" id="id"><br>
+        비밀번호 : <input type="password" id="pw"><br>
+        <button id="btn2">로그인</button>
+    </div>
+    <div>
+        <select id="sel">
+            <option value="1">11</option>
+            <option value="2">22</option>
+            <option value="3">33</option>
+        </select>
+    </div>
+
+
+</body>
+
+</html>

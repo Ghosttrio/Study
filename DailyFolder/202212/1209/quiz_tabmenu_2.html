@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <style>
+        #wrap {            
+            color: white;
+        }
+
+        #top {
+            width: 800px;
+            height: 400px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #top2 {
+            position: relative;
+            top: -240px;
+        }
+
+        #top3 {
+            position: relative;
+            top: -480px;
+        }
+
+        #top4 {
+            position: relative;
+            top: -720px;
+        }
+
+        #bottom div {
+            width: 200px;
+            height: 50px;
+            padding: 0px;
+            float: left;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .gray {
+            background-color: #484846;
+        }
+
+        .whitegray {
+            background-color: #69696a;
+        }
+
+        .red {
+            background-color: #fa533f;
+        }
+
+        .green {
+            background-color: #485e20;
+        }
+
+        .blue {
+            background-color: #1682f6;
+        }
+
+        .yellow {
+            background-color: #fc9900;
+        }
+
+    </style>
+    <script>
+        
+        window.onload = () => {
+
+            for (let k = 1; k < 5; k++) {
+
+                for(let i=1; i<5;i++){
+                    if(i==1){
+                        document.querySelector("#top"+i).style.visibility = "visible";
+                        document.querySelector("#bottom"+i).classList.add("red");
+                        document.querySelector("#bottom"+i).classList.add("gray");
+                        document.querySelector("#top").classList.add("red");
+                    } else {
+                        document.querySelector("#top"+i).style.visibility = "hidden";
+                        document.querySelector("#bottom"+i).classList.add("gray");
+                    }
+                }
+
+                document.querySelector("#bottom" + k).addEventListener("mouseover", () => {
+                    document.querySelector("#bottom" + k).classList.remove("gray");
+                    document.querySelector("#bottom" + k).classList.add("whitegray");
+                })
+
+                document.querySelector("#bottom" + k).addEventListener("mouseout", () => {
+                    document.querySelector("#bottom" + k).classList.remove("whitegray");
+                    document.querySelector("#bottom" + k).classList.add("gray");
+                })
+
+                document.querySelector("#bottom"+k).addEventListener("click", () => {
+
+                    let arr = ["", "red", "green", "blue", "yellow"]
+
+                    for (let i = 1; i < 5; i++) {
+                        if (i == k) {
+                            document.querySelector("#top" + i).style.visibility = "hidden";
+                            document.querySelector("#top" + i).style.visibility = "visible";
+                            document.querySelector("#bottom" + i).classList.add(arr[i]);
+                            document.querySelector("#top").classList.add(arr[i]);
+                        } else {
+                            document.querySelector("#top" + i).style.visibility = "hidden";
+                            document.querySelector("#bottom" + i).classList.remove(arr[i]);
+                            document.querySelector("#top").classList.remove(arr[i]);
+                        }
+                    }
+                    
+                })
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- top -->
+        <div id="top">
+            <div id="top1">
+                <br>
+                <h1>About</h1><br>
+                Lorem, ipsum dolor sit amet consectetur
+            </div>
+            <div id="top2">
+                <h1>Technology</h1><br>
+                exercitationem dolorum. adipisicing elit.
+            </div>
+            <div id="top3">
+                <h1>Downloads</h1><br>
+                nobis totam sequi rem libero cumque
+            </div>
+            <div id="top4">
+                <h1>Products</h1><br>
+                eum ratione, fugiat laborum quidem corporis
+            </div>
+        </div>
+        <div id="bottom">
+            <!-- bottom1 -->
+            <div id="bottom1">
+                About
+            </div>
+
+            <!-- bottom2 -->
+            <div id="bottom2">
+                Technology
+
+            </div>
+            <!-- bottom3 -->
+            <div id="bottom3">
+                Downloads
+
+            </div>
+            <!-- bottom4 -->
+            <div id="bottom4">
+                Products
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

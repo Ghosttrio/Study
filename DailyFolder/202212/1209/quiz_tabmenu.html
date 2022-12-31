@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <style>
+
+        #wrap {
+            clear: both;
+            color: white;
+        }
+
+        #top {
+            width: 800px;
+            height: 400px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #top2 {
+            position: relative;
+            top: -240px;
+
+        }
+
+        #top3 {
+            position: relative;
+            top: -480px;
+
+        }
+
+        #top4 {
+            position: relative;
+            top: -720px;
+
+        }
+
+        #bottom1, #bottom2, #bottom3, #bottom4 {
+            width: 200px;
+            height: 50px;
+            padding: 0px;
+            display: inline-block;
+            float: left;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .gray {
+            background-color: #484846;
+        }
+
+        .whitegray {
+            background-color: #69696a;
+        }
+
+        .red {
+            background-color: #fa533f;
+        }
+
+        .green {
+            background-color: #485e20;
+        }
+
+        .blue {
+            background-color: #1682f6;
+        }
+
+        .yellow {
+            background-color: #fc9900;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+
+            // 기본값
+            document.querySelector("#top1").style.visibility = "visible";
+            document.querySelector("#top2").style.visibility = "hidden";
+            document.querySelector("#top3").style.visibility = "hidden";
+            document.querySelector("#top4").style.visibility = "hidden";
+
+            document.querySelector("#top").classList.add("red");
+            document.querySelector("#bottom1").classList.add("red");
+            document.querySelector("#bottom1").classList.add("gray");
+            document.querySelector("#bottom2").classList.add("gray");
+            document.querySelector("#bottom3").classList.add("gray");
+            document.querySelector("#bottom4").classList.add("gray");
+
+            // 호버
+            for(let i=1; i<5; i++){
+                document.querySelector("#bottom"+i).addEventListener("mouseover", function(){
+                    document.querySelector("#bottom"+i).classList.remove("gray");
+                    document.querySelector("#bottom"+i).classList.add("whitegray");
+                })
+                document.querySelector("#bottom"+i).addEventListener("mouseout", function(){
+                    document.querySelector("#bottom"+i).classList.remove("whitegray");
+                    document.querySelector("#bottom"+i).classList.add("gray");
+                })
+            }
+
+            // 빨강
+            document.querySelector("#bottom1").addEventListener("click", function () {
+                
+                for(let i=1; i<5; i++){
+                        document.querySelector("#top"+i).style.visibility = "hidden"
+                }
+                document.querySelector("#top1").style.visibility = "visible";
+            
+                let j = ["red","green","blue", "yellow"];
+
+                for(let i=1; i<j.length; i++){
+                    if(i==1){
+                        document.querySelector("#bottom"+i).classList.add("red");
+                        document.querySelector("#top").classList.add("red");
+                    }
+                    document.querySelector("#bottom2").classList.remove(j[i]);
+                    document.querySelector("#top").classList.remove(j[i]);
+                }
+            })
+
+            // 초록
+            
+            document.querySelector("#bottom2").addEventListener("click", function () {
+                
+
+
+                for(let i=1; i<j.length; i++){
+                    if(i==1){
+                        document.querySelector("#bottom"+i).classList.add("red");
+                        document.querySelector("#top").classList.add("red");
+                    }
+                    document.querySelector("#bottom2").classList.remove(j[i]);
+                    document.querySelector("#top").classList.remove(j[i]);
+                }
+
+
+                for(let i=1; i<5; i++){
+                    document.querySelector("#top"+i).style.visibility = "hidden";
+                }
+                document.querySelector("#top2").style.visibility = "visible";
+
+                let j = ["red","green","blue", "yellow"];
+
+                for(let i=1; i<j.length; i++){
+                    if(i==2){
+                        document.querySelector("#bottom"+i).classList.add("green");
+                        document.querySelector("#top").classList.add("green");
+                    }
+                    document.querySelector("#bottom"+i).classList.remove(j[i]);
+                    document.querySelector("#top").classList.remove(j[i]);
+                }
+                // document.querySelector("#bottom1").classList.remove("red");
+                // document.querySelector("#bottom3").classList.remove("blue");
+                // document.querySelector("#bottom4").classList.remove("yellow");
+                // document.querySelector("#top").classList.remove("red");
+                // document.querySelector("#top").classList.remove("blue");
+                // document.querySelector("#top").classList.remove("yellow");
+
+                
+
+            })
+
+            // 파랑
+            document.querySelector("#bottom3").addEventListener("click", function () {
+                
+                document.querySelector("#top3").style.visibility = "visible";
+                document.querySelector("#top2").style.visibility = "hidden";
+                document.querySelector("#top1").style.visibility = "hidden";
+                document.querySelector("#top4").style.visibility = "hidden";
+
+                document.querySelector("#bottom2").classList.remove("green");
+                document.querySelector("#bottom1").classList.remove("red");
+                document.querySelector("#bottom4").classList.remove("yellow");
+                document.querySelector("#top").classList.remove("green");
+                document.querySelector("#top").classList.remove("red");
+                document.querySelector("#top").classList.remove("yellow");
+
+                document.querySelector("#bottom3").classList.add("blue");
+                document.querySelector("#top").classList.add("blue");
+            })
+
+            // 노랑
+            document.querySelector("#bottom4").addEventListener("click", function () {
+
+                document.querySelector("#top4").style.visibility = "visible";
+                document.querySelector("#top2").style.visibility = "hidden";
+                document.querySelector("#top3").style.visibility = "hidden";
+                document.querySelector("#top1").style.visibility = "hidden";
+
+                document.querySelector("#bottom2").classList.remove("green");
+                document.querySelector("#bottom3").classList.remove("blue");
+                document.querySelector("#bottom1").classList.remove("red");
+                document.querySelector("#top").classList.remove("green");
+                document.querySelector("#top").classList.remove("blue");
+                document.querySelector("#top").classList.remove("red");
+                
+                document.querySelector("#bottom4").classList.add("yellow");
+                document.querySelector("#top").classList.add("yellow");
+            })
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- top -->
+        <div id="top">
+            <div id="top1">
+                <br>
+                <h1>About</h1><br>
+                Lorem, ipsum dolor sit amet consectetur 
+            </div>
+            <div id="top2">
+                <h1>Technology</h1><br>
+                exercitationem dolorum. adipisicing elit.
+            </div>
+            <div id="top3">
+                <h1>Downloads</h1><br>
+                nobis totam sequi rem libero cumque
+            </div>
+            <div id="top4">
+                <h1>Products</h1><br>
+                eum ratione, fugiat laborum quidem corporis
+            </div>
+        </div>
+        <!-- bottom1 -->
+        <div id="bottom1">
+            About
+        </div>
+
+        <!-- bottom2 -->
+        <div id="bottom2">
+            Technology
+
+        </div>
+        <!-- bottom3 -->
+        <div id="bottom3">
+            Downloads
+
+        </div>
+        <!-- bottom4 -->
+        <div id="bottom4">
+            Products
+        </div>
+        <!-- 쿼리셀렉터 all -->
+    </div>
+</body>
+
+</html>

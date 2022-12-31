@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 1000px;
+            height: 500px;
+
+        }
+        .up {
+            width: 1000px;
+            height: 350px;
+
+            background-color: rgb(35, 84, 13);
+        }
+        .down1, .down2 {
+            width: 495px;
+            height: 145px;
+
+            display: inline-block;
+        }
+        .down1 {
+            background-color: rgb(16, 90, 108)
+        }
+        .down2 {
+            background-color: rgb(164, 164, 42)
+        }
+        .down1color {
+            background-color: rgb(16, 90, 108)
+        }
+        .down2color {
+            background-color: rgb(164, 164, 42)
+        }
+        .upcolor {
+            background-color: rgb(35, 84, 13);
+        }
+
+        
+    </style>
+    <script>
+        // 2번문제
+        // class 조작
+        // DOM.classList.add("red") // class red 추가
+        // DOM.classList.remove("red") // class red 제거
+        // DOM.classList.toggle("red") // class red 있으면 제거 없으면 추가
+        // DOM.classList.contains("red") // class중에 red 있는지 없는지 true false로 나옴
+
+        // DOM.setAttribute("class", "result2 red") // 속성 class의 값 덮어쓰기
+        window.onload = function() {
+            document.querySelector(".down1").addEventListener("mouseover", function(){
+                let up = document.querySelector(".up");
+                up.classList.remove("upcolor")
+                up.classList.add("down1color")
+            })
+            document.querySelector(".down1").addEventListener("mouseout", function(){
+                let up = document.querySelector(".up");
+                up.classList.remove("down1color")
+                up.classList.remove("down2color")
+                up.classList.add("upcolor")
+            })
+            document.querySelector(".down2").addEventListener("mouseover", function(){
+                let up = document.querySelector(".up");
+                up.classList.remove("upcolor")
+                up.classList.add("down2color")
+            })
+            document.querySelector(".down2").addEventListener("mouseout", function(){
+                let up = document.querySelector(".up");
+                up.classList.remove("down1color")
+                up.classList.remove("down2color")
+                up.classList.add("upcolor")
+            })
+        
+            
+        
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+    <div class="wrap">
+        <div class = "up">
+
+        </div>
+        <div class = "down1">
+
+        </div>
+        <div class = "down2">
+
+        </div>
+    </div>
+
+    <ul>
+        <li class="on">
+          <button class="button">menu1</button>
+          <p id="menu1" class="content">description</p>  
+        </li>
+        <li>
+          <button class="button">menu2</button>
+          <p id="menu2" class="content">description</p>  
+        </li>
+        <li>
+          <button class="button">menu3</button>
+          <p id="menu3" class="content">description</p>  
+        </li>
+        <li>
+          <button class="button">menu4</button>
+          <p id="menu4" class="content">description</p>  
+        </li>
+      </ul>
+</body>
+</html>
+
+<!-- 6.
+https://dinfree.com/lecture/frontend/123_js_exam.html#%EC%8B%A4%ED%96%89-%EA%B2%B0%EA%B3%BC
+6-1. 클릭 시 내용바뀌기
+6-2. 아코디언 메뉴 만들기 -->

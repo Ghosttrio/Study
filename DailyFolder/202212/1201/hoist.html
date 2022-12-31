@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        let a = 10;
+        console.log(a);
+        
+        a = "한글";
+        console.log(a);
+        console.log("aa\nbbb")
+
+        if(true){
+            let b = 20;
+        }
+        // console.log(b);
+        //   \n
+
+        c = 30;
+        // let을 안적어도 되지만 이상하게 동작함
+        console.log(c);
+
+        var d = 40;
+        console.log(d);
+
+        const e = 50;
+        // e = 60; 에러난다.
+
+        // if(true){
+        //     var f = 11;
+        // }
+        // console.log(f);
+        // f가 지역변수임에도 출력이 된다.
+
+        if(false){
+            var f = 11;
+        }
+        // false면 undefined
+        // =
+
+        // var f;
+        // if(false){
+        //     f = 11;
+        // }
+        // false면 이런식으로 여긴다 그래서 f값이 없으니 undefined
+
+        console.log(f);
+
+
+        if(true){
+            g = 12;
+        }
+        console.log(g);
+        // 변수선언을 안하면 글로벌 변수가 된다.
+
+        var f = 20;
+        console.log(f);
+        // 새로운 f로 대체된다.
+        // 그래서 let을 써야한다.
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

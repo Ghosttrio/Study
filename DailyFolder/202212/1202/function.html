@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let result = fnSum(2, 5);
+        console.log("result: ", result);
+
+        function fnSum(x, y){
+            console.log("x", x);
+            console.log("y", y);
+            
+            let result = x + y;
+            return result;
+        }
+        // 호이스팅이 되어서 올라간다.
+
+        console.log(typeof result);
+        let a = [];
+        console.log(typeof a);
+        console.log(typeof fnSum);
+
+        let sum = fnSum;
+        console.log(typeof sum);
+        console.log(sum(1,2));
+
+        let sum2 = function (a, b){
+            return a + b;
+        }
+        console.log(sum2(1,1));
+        // 이렇게 전달을 해도되고 함수 자체를 전달할 수도 있다.
+        let sum22 = function (){
+            console.log("a");
+        }
+        sum22();
+
+        let b = (3+4) + 5;
+
+        (function () {
+            console.log("b");
+        })();
+        // 익명함수 활용의 끝판왕
+    
+        (() => {
+            console.log("b");
+        })();
+        // 익명함수 + arrow함수
+        setTimeout(function(){
+            console.log("print2")
+        }, 1000);
+        function fnPrint(){
+            console.log("print");
+        }
+
+        function fnSetInfo(a, cb){
+            console.log(a);
+            cb();
+        }
+
+        console.log("-----callback test-----")
+        fnSetInfo(1, fnPrint);
+
+        function fnPrint2(a, b, c){
+            console.log(a,b,c);
+        }
+        fnPrint2(1,2,3);
+        fnPrint2(1,2,3,4);
+        fnPrint2(1,2);        
+        // 자바스크립트는 오버로딩이 없다.
+        
+        console.log("before");
+        let to_id = setTimeout(fnPrint, 1010);
+        clearTimeout(to_id);
+        
+        // setTimeout(fnPrint, 1010);
+        // 콜백함수
+        setTimeout(function(){
+            console.log("print2")
+        }, 1000);
+        // 1000분의 1초단위 (mm second 단위)
+        console.log("after");
+        // 비동기??
+        
+        // 순서 1 - 4 - 3 - 2
+
+        let itv_id = setInterval(function(){
+            console.log("print2")
+        }, 1000);
+        setTimeout(function(){
+            clearInterval(itv_id);
+        }, 1000);
+        // try catch 방어코딩
+
+        let a1 = null;
+        let a2 = undefined;
+        // boolean
+        // 자바스크립트에서는 false의 개념이 정해져 있다.
+        // false;  false, undefined, null, 0 <--- 이 4가지가 아니면 참이다.
+        // !false == true 거짓이 아닌 것을 참으로 여긴다
+
+
+        // 화살표 함수, arrow function
+        // 이름을 가질 수 없다. 익명만 된다.
+        // function fn1(x,y){
+        //     return x+y;
+        // }
+
+        let fn1 = function(x,y){
+            return x+y;
+        }
+
+        fn1 = (x,y) => {
+            return x+y;
+        }
+        fn1(1,2);
+
+        fn1 = (x) => {
+            return x+x;
+        }
+        // 전달인자가 하나일때에만 생략 가능
+        fn1 = x => {
+            return -1;
+        }
+        fn1 = () => 
+            console.log(1);
+        fn1 = () => console.log(1);
+        // 실행블럭의 내용이 한줄만 있는 경우 중괄호 생략가능
+
+        fn1 = () => -1;
+        // 중괄호를 생략한 경우 자동으로 return이 되니 
+        // return을 적으면 안된다. 즉 return도 생략 가능
+        fn1 = x => x * x;
+        let r1 =fn1(3);
+        console.log(r1);
+        
+        fn1 = x => x > 30;
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

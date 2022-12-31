@@ -1,0 +1,59 @@
+<!DOCTYPE html> <!-- ◁ 브라우저에게 이 파일이 html 파일이다. 라고 알려준다. 
+                        html문법에 맞게 해석해라. / !를 치고 엔터를 하면
+                         vs코드에서는 자동완성된다. -->
+<html lang="en"> <!--◁ lang = "언어" / 시멘틱요소 / 영어, 한국어, 중국어 등등
+                         읽기 편하게 적어준다. / html태그로 열고 닫는다.-->
+    <head>  <!--◁ 기본적으로 head와 body가 존재 / head는 제목, 요약정보, 
+                    body에는 표시할 부분을 적는다.-->
+         <title>Document</title> <!--DDocument라는 타이틀-->
+    </head>
+    
+    <body>
+         <h1>heading1</h1> <!--h1은 페이지당 한 개만 있게 설정 / 기계가 읽기 편함
+                              h1은 그 줄의 영역을 전부 가지고 있다.-->
+        <h2>heading2</h2>
+        <h3 id="top">heading3</h3> <!-- anchor태그//id는 페이지 하나당 하나만 만드는 것이 좋다.-->
+        normal
+        normal<br> <!--br(break)가 없을경우 그냥 글씨의 영역만 가지고 있다.-->
+        <strong>strong</strong>
+        <b>bold</b> <!--b보다는 strong을 쓰는 것이 좋다. 스트롱은 시멘틱요소-->
+        <hr> <!--구분선-->
+        <em>이텔릭</em>
+        <i>i tag이텔릭</i> 
+        <sub></sub> <!--밑표현-->
+        <sup></sup> <!--제곱표현-->
+        <p></p> <!--단락-->
+        &nbsp; <!--스페이스바를 여러번해도 출력은 한번만됨 &nbsp;를 하면 
+        공백 구현-->
+        <pre></pre> <!--입력한대로 브라우저에 출력-->
+        <a href="#top"></a> <!--anchor태그, h3으로이동-->
+        <a href="http:~~~"></a> <!--페이지로 이동-->
+        <a href="mailto:abc@na.com">메일</a>
+        <a href="tel:010-0000-0000">전화</a>
+        <a href="http://google.com" target="_blank">구글 새창</a>
+
+        <ul>
+        <li></li>
+        </ul>
+        <ol type="I" start="3" reversed="true"> <!--여러 스타일 가능 / reversed는 그냥 사용가능하지만
+                                                        속성만 존재하지 않도록 reversed ="true" or reversed =
+                                                        "reversed" 사용-->
+        <li></li>
+        </ol>   <!--목록-->
+
+        <table border="1"> <!--모양설정-->
+        <caption>설명/캡션</caption>
+        <summary>요약/이름/주소</summary>
+        <thead>
+        <th>이름</th>
+        <th>주소</th>
+        </thead>
+        <tbody>
+        <tr>
+        <td>홍길동</td>
+        <td>서울시</td>
+        </tr>
+        </tbody>
+        </table>
+    <body>
+</html>

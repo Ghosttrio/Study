@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let xhr = new XMLHttpRequest();
+        let url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst";
+        url += "?";
+        url += "serviceKey=WBr28mekYd5PPj%2FX37EMeQ3IULgBIcc7jV3p%2F1yQBc4jvT2BPs4JxAxGusA8O7LCrojnwykHxxDNJcGCKf4Beg%3D%3D";
+        url += "&";
+        url += "numOfRows=100";
+        url += "&";
+        url += "pageNo=1";
+        url += "&";
+        url += "dataType=JSON";
+        url += "&";
+        url += "base_date=20221206";
+        url += "&";
+        url += "base_time=0400";
+        url += "&";
+        url += "nx=63";
+        url += "&";
+        url += "ny=100";
+        
+        xhr.open("get", url);
+        xhr.send();
+        xhr.onload = function() {
+            let data = JSON.parse(xhr.responseText);
+            for (info of data.response.body.items.item){
+                if (info.category == "T1H") {
+                    info.fcstTime
+                    info.fcstValue
+                }
+            }
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

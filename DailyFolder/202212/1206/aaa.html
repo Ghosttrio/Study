@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .result2 {
+            height: 50px;
+            background-color: gray;
+        }
+
+        .red {
+            background-color: red;
+            color: white;
+        }
+
+        .green {
+            background-color: green;
+            color:black;
+        }
+
+        .blue {
+            background-color: blue;
+            color:white;
+        }
+    </style>
+
+    <script>
+
+        // DOM.setAttribute("class", "result2 red") // 속성 class의 값 덮어쓰기
+        window.onload = function () {
+            document.querySelector("#btn2-1").addEventListener("click", function () {
+                let a = document.querySelector(".result2");
+                a.setAttribute("class", "result2 red");
+            })
+            document.querySelector("#btn2-2").addEventListener("click", function () {
+                let a = document.querySelector(".result2");
+                a.setAttribute("class", "result2 green");
+            })
+            document.querySelector("#btn2-3").addEventListener("click", function () {
+                let a = document.querySelector(".result2");
+                a.setAttribute("class", "result2 blue");
+            })
+            document.querySelector("#reset").addEventListener("click", function () {
+                let a = document.querySelector(".result2");
+                a.setAttribute("class", "result2");
+            })
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>색 변경</h1>
+        <h2>버튼(3개)에 따라 배경색과 폰트색이 변경되는 것<br>
+            미리 css는 만들어 놓고 class를 변경하면서 적용
+        </h2>
+        <div class="gg">
+            <div class="result2">
+                취업 성공 기원!!
+            </div>
+            <button type="button" id="btn2-1">red</button>
+            <button type="button" id="btn2-2">green</button>
+            <button type="button" id="btn2-3">blue</button>
+            <button type="button" id="reset">초기화</button>
+        </div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            document.querySelector("#btn1").addEventListener("click", function(){
+                let name = document.querySelector("#nameText").value;
+                let name1 = document.querySelector("#nameText2");
+                name1.innerHTML = name;
+
+                let addr = document.querySelector("#addrText").value;
+                let addr1 = document.querySelector("#addrText2");
+                addr1.innerHTML = addr;
+
+                let phone = document.querySelector("#phoneText").value;
+                let phone1 = document.querySelector("#phoneText2");
+                phone1.innerHTML = phone;
+            })
+            document.querySelector("#btn2").addEventListener("click", function(){
+                let name = document.querySelector("#nameText").value;
+                let addr = document.querySelector("#addrText").value;
+                let phone = document.querySelector("#phoneText").value;
+                let zz =  name+"\n" + addr+ "\n"+ phone;
+                alert(zz);
+            })
+       
+        }
+    </script>
+</head>
+<body>
+    <div id="a">
+        주문자
+        <div>
+            이름<input type="text" id="nameText">
+        </div>
+        <div>
+            주소<input type="text" id="addrText">
+        </div>
+        <div>
+            연락처<input type="text" id="phoneText">
+        </div>
+    </div>
+
+    <input type="checkbox" id="btn1">위 배송지와 동일</button>
+
+    <div id="b">
+        주문자
+        <div id="nameText2">
+            이름
+        </div>
+        <div id="addrText2">
+            주소
+        </div>
+        <div id="phoneText2">
+            연락처
+        </div>
+    </div>
+
+    <button type="button" id="btn2">결제하기</button>
+</body>
+</html>

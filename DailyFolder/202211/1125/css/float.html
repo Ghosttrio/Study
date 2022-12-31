@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    img {
+        float:right;
+        margin-right: 10px;
+    }
+    
+    .box {
+        border: 1px solid black;
+        width:70px;
+        height:70px;
+        margin:10px;
+        padding:10px;
+    }
+
+    .d1, .d2 {
+        float: left;
+        text-align: center;
+        font-size: 50px;
+    }
+    .d3, .d4 {
+        float: right;
+        text-align: center;
+        font-size: 50px;
+    }
+
+    .d1 {
+        background: red;
+        color:black;
+    }
+    
+    .d2 {
+        background: blue;
+        color:black;
+    }
+
+    .d3 {
+        background: yellow;
+        color:black;
+    }
+
+    .d4 {
+        background: green;
+        color:black;
+    }
+    .center{
+        /* margin-top: 200px; */
+        /* float: left;
+        margin: auto; */
+    }
+    #up{
+
+        width: 500px;
+        background-color: rgba(255,0,0,0.5);
+        float:left;
+        color: wheat;
+        margin: 0 10px;
+    }
+    #up_clear::after {
+        content: "";
+        display:block;
+        clear:both;
+    }
+    #down{
+        background-color: blue;
+        color: wheat;
+        /* overflow: hidden; */
+        margin: 0 10px;
+    }
+    /* #clear {
+        clear : both;
+    } */
+
+    </style>    
+</head>
+
+
+
+<body>
+    <img src="https://poiemaweb.com/img/doug.jpg">
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    
+    
+    <br>
+    <br>
+
+
+    <div class="container">
+        <div class="box d1"> </div>
+        <div class="box d2"> </div>
+        <div class="box d3"> </div>
+        <div class="box d4"> </div>
+    </div>
+
+    <div>
+        <div class="box center">
+            <!-- center -->
+        </div>
+    </div>
+    
+    <div>
+        <div id="up_clear" >
+        <div id="up">위</div>
+        </div>
+        <div id="clear">clear</div>
+        <div id="down">아래</div>
+    </div>
+
+
+</body>
+</html>
+
+
+<!-- 스페이스바 없애는 법 : font-size:0 -->
+<!-- float 쓰고 나서 clear both 사용 -->
+<!-- 구체적일수록 우선순위가 높다 -->
+<!-- section footer 등 쓰면 좋다 -->

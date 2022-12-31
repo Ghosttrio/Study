@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // date : 2022년 12월 06일 09시 29분 30초
+        // timestamp : 1970년 1월 1일 0시를 기준
+
+        // 날짜 객체
+        let date = new Date();
+        console.log(date);
+
+        // 년도
+        let y = date.getFullYear();
+        console.log(y);
+        // new Date().getFullYear();
+        // 월 (0~11)
+        let M = date.getMonth();
+        console.log("월 :", M + 1);
+
+        // 일
+        let d = date.getDate();
+        console.log("일 :", d);
+
+        // 요일(일(0)~토(6))
+        let w = date.getDay();
+        console.log("요일 :", w);
+
+        // 시
+        let H = date.getHours();
+        console.log("시 :", H);
+
+        // 분
+        let m = date.getMinutes();
+        console.log("분 :", m);
+
+        // 초
+        let s = date.getSeconds();
+        console.log("초 :", s);
+
+        console.log("toString(), ", date.toString());
+        console.log("toISOString(), ", date.toISOString());
+
+
+
+
+
+
+        window.onload = function () {
+
+            setInterval(function () {
+                date = new Date();
+                let iso = date.toISOString();
+                console.log("toISOString(), ", iso);
+                let val1 = iso.split("T");
+                console.log(val1);
+                let yMd = val1[0]; // 2022-12-06
+                let Hms = val1[1].split(".")[0];
+                console.log(yMd, Hms);
+                document.querySelector("#time").innerHTML = yMd + " " + Hms;
+            }, 250);
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="time"></h1>
+</body>
+
+</html>

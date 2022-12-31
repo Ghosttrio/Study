@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        window.onload = function() {
+            document.querySelector("#btn1").addEventListener("click",function(){
+                // 메뉴 1
+                let a = document.querySelector("#menu1")
+                let b = document.querySelector("#menu2")
+                let c = document.querySelector("#menu3")
+                let menu1;
+                let price = 0;
+                if(a.checked){
+                    menu1 = a.value;
+                    price += a.value;
+                } else if(b.checked){
+                    menu1 = b.value;
+                    price += b.value;
+                } else if(c.checked){
+                    menu1 = c.value;
+                    price += c.value;
+                }
+
+                // 메뉴2
+                let menu2;
+                let aa = document.querySelector("#s1")
+                let bb = document.querySelector("#s2")
+                let cc = document.querySelector("#s3")
+
+                if(aa.selected){
+                    menu2 = aa.value;
+ 
+                } else if(bb.selected){
+                    menu2 = bb.value;
+      
+                } else if(cc.selected){
+                    menu2 = cc.value;
+
+                }
+
+                // 메뉴3
+                let menu3="";
+                let aaa = document.querySelector("#t1")
+                let bbb = document.querySelector("#t2")
+                let ccc = document.querySelector("#t3")
+                
+                if(aaa.checked){
+                    menu3 += aaa.value;
+                    price += aaa.value;
+                } 
+                if(bbb.checked){
+                    menu3 += bbb.value;
+                    price += bbb.value;
+                } 
+                if(ccc.checked){
+                    menu3 += ccc.value;
+                    price += ccc.value;
+                }
+
+                // 요청사항
+                let menu4 = document.querySelector("#rq").value;
+
+                // 요청하기
+                alert(menu1+"\n"+menu2+"\n"+menu3+"\n"+menu4+"\n"+price);
+
+            })
+        }
+        
+    </script>
+</head>
+<body>
+    <div>
+        <div>
+            <input id="menu1" type="radio" name="a" checked value="10000">[기본 떡볶이: 10000원]<br>
+            <input id="menu2" type="radio" name="a" value="12000">[짜장 떡볶이: 12000원]<br>
+            <input id="menu3" type="radio" name="a" value="14000">[로제 떡볶이: 14000원]<br>
+        <div>
+            맵기
+            <select>
+                <option id="s1">1단계</option>
+                <option id="s2">2단계</option>
+                <option id="s3">3단계</option>
+            </select>
+        </div>
+        <div>
+            토핑
+            <input id="t1" type="checkbox" name="1" value="1000"> [튀김: 1000원]
+            <input id="t2" type="checkbox" name="1" value="500"> [치즈: 500원]
+            <input id="t3" type="checkbox" name="1" value="1500" data-price="500"> [햄: 1500원]
+        </div>
+        <div>
+            요청사항
+            <input id="rq" type="text">
+        </div>
+        <div>
+            <button type="button" id="btn1">요청하기</button>
+        </div>
+    </div>
+</body>
+</html>

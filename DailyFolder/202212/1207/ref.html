@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function() {
+            let mem1 = [".", "a", "b","c","d","g"];
+            let mem2 = ["e", "f", "g","h","i","j"];
+            let members = [ mem1, mem2 ];
+            console.log(members.length == 2)
+            console.log(members)
+            
+            
+            
+            let html = "";
+            // html += "<tr><td colspan='6'>강사</td></tr>"
+            // 한줄씩
+            for(let i=0; i<members.length; i++){
+                html +="<tr>";
+                // 한줄에 있는 한명씩
+                for(let j=0; j<members[i].length; j++){
+                    html += "<td>" + members[i][j] + "</td>"
+                }
+                html += "</tr>"
+            }
+            document.querySelector("#tbody").innerHTML = html;
+
+            // creatElement 사용법
+            // 한줄씩 ...for            
+            let tr = document.createElement("tr");
+                // 한명씩 ..for
+                let td = document.createElement("td");
+                td.innerText = "박창순";
+                tr.append(td);
+            // append는 element를 만들었을때사용
+        }
+        
+    </script>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+</body>
+</html>

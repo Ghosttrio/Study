@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function() {
+            document.querySelector("#chk2").addEventListener("click", function(){
+                if(this.checked){
+                    console.log("체크 되어있음")
+                    let i21 = document.querySelector("#input2-1").value;
+                    document.querySelector("#output2-1").value = i21;
+                    let i22 = document.querySelector("#input2-2").value;
+                    document.querySelector("#output2-2").value = i22;
+                    let i23 = document.querySelector("#input2-3").value;
+                    document.querySelector("#output2-3").value = i23;
+                } else {
+                    console.log("체크풀림")
+                    document.querySelector("#output2-1").value = "";
+                    document.querySelector("#output2-2").value = "";
+                    document.querySelector("#output2-3").value = "";
+                }
+            })
+        }
+
+        function test(){
+            let i = 0;
+            console.log(i++)
+            console.log(i++)
+            debugger
+            console.log(i++)
+            console.log(i++)
+        }
+    </script>
+
+
+</head>
+<body>
+    
+    <div>
+        <h1>배송정보</h1>
+        <h2>주문자 정보</h2>
+        이름: <input type="text" id="input2-1"><br>
+        주소: <input type="text" id="input2-2"><br>
+        연락처: <input type="text" id="input2-3"><br>
+        <hr>
+        <h2>배송정보</h2>
+        <input type="checkbox" id="chk2">주문자와 동일<br>
+        이름: <input type="text" id="output2-1"><br>
+        주소: <input type="text" id="output2-2"><br>
+        연락처: <input type="text" id="output2-3"><br>
+    </div>
+
+
+</body>
+</html>

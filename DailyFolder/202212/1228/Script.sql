@@ -1,0 +1,126 @@
+--SELECT empno, ename, deptno FROM emp;
+--
+--SELECT * FROM dept;
+--
+--SELECT * FROM salgrade;
+--
+--SELECT * FROM bonus;
+
+--SELECT DISTINCT JOB, deptno FROM EMP;
+
+
+SELECT 
+	ENAME AS NAME, 
+	SAL "SAL 3", 
+	SAL*12+COMM AS ANNSAL, 
+	COMM 
+FROM 
+	EMP
+ORDER BY SAL ASC;
+
+SELECT *
+FROM EMP 
+ORDER BY deptno DESC , sal ;
+
+SELECT *
+FROM EMP
+ORDER BY HIREDATE
+
+
+SELECT * FROM emp WHERE empno = 7782;
+-- sal의 값이 3000 이상인 recode만 뽑기
+
+SELECT * FROM emp WHERE sal >= 3000;
+
+SELECT * FROM emp WHERE ename = 'JONES';
+
+SELECT * FROM emp WHERE job = 'SALESMAN';
+
+SELECT * FROM emp WHERE deptno = 30 AND job = 'SALESMAN';
+
+--sal이 2000 이상이고 deptno가 20인
+
+SELECT * FROM emp WHERE sal >= 2000 AND deptno = 20;
+
+-- sal 정보가 1000이상 2000이하
+SELECT * FROM emp WHERE (deptno = 30 AND job = 'CLERK') OR ename = 'JONES';
+SELECT * FROM emp WHERE (deptno = 30 OR ename = 'JONES' ) AND ( job = 'CLERK' OR ename = 'JONES');
+
+SELECT sal, sal*12 FROM emp WHERE sal*12 = 36000;
+
+SELECT * FROM emp WHERE NOT sal = 3000;
+
+SELECT * FROM emp WHERE job IN ('MANAGER', 'SALESMAN', 'CLERK');
+
+-- IN을 사용하면 FOR문을 사용하기 쉽다.
+
+SELECT * FROM emp WHERE job NOT IN ('MANAGER', 'SALESMAN', 'CLERK');
+
+SELECT * FROM EMP WHERE DEPTNO IN (10, 20);
+
+SELECT * FROM EMP WHERE ENAME LIKE 'S%';
+
+
+SELECT * FROM EMP WHERE ENAME LIKE 'A\%' ESCAPE '\';
+
+-- 데이터양이 많을 땐 LIKE 사용을 지양한다.
+
+SELECT comm, comm*2 FROM emp;
+
+SELECT * FROM emp WHERE comm < 1000;
+-- 값이 null은 조건식에서 제외
+
+SELECT * FROM emp WHERE comm IS NOT NULL;
+
+
+-- union : 중복된 데이터를 한번만 보여주면서 두 결과를 합쳐준다.
+-- 단, 컬럼이 동일해야 함
+-- SELECT 뒤에 개수와 타입이 같아야 함 BUT 되도록 같은 컬럼으로 조회
+SELECT * FROM emp WHERE deptno = 10
+UNION
+SELECT * FROM emp WHERE sal > 2000;
+
+SELECT * FROM EMP WHERE DEPTNO = 10
+UNION ALL
+SELECT * FROM EMP WHERE DEPTNO = 10;
+
+
+-- UNION ALL에 ORDER BY 적용 시
+SELECT * FROM EMP 
+WHERE DEPTNO = 10
+ORDER BY EMPNO
+UNION ALL
+SELECT * FROM EMP
+WHERE DEPTNO = 10
+ORDER BY EMPNO;
+-- ERROR
+-- 각각 ORDER BY를 적용할 수 없음
+
+
+SELECT * FROM EMP WHERE DEPTNO = 10
+UNION ALL
+SELECT * FROM EMP WHERE DEPTNO = 10;
+
+
+-- Q1
+SELECT * FROM EMP WHERE ENAME LIKE '%S';
+
+-- Q2
+SELECT * FROM EMP WHERE DEPTNO = 30 AND JOB = 'SALESMAN';
+
+-- Q3-1
+SELECT * FROM EMP WHERE (DEPTNO = 20 OR DEPTNO =30) AND SAL > 2000;
+
+-- Q3-2
+SELECT * FROM EMP WHERE DEPTNO = 30 AND SAL > 2000
+UNION
+SELECT * FROM EMP WHERE DEPTNO = 20 AND SAL > 2000 ;
+
+-- Q4
+SELECT * FROM EMP WHERE NOT (SAL >= 2000 AND SAL <= 3000);
+
+-- Q5
+SELECT * FROM EMP WHERE ((ENAME LIKE '%E%') AND (DEPTNO = 30)) AND (SAL NOT BETWEEN 1000 AND 2000);
+
+-- Q6
+SELECT * FROM EMP WHERE ((COMM IS NULL) AND (JOB = 'MANAGER' OR JOB = 'CLERK')) AND (ENAME NOT LIKE '_L%')

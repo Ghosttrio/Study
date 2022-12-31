@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let xhr = new XMLHttpRequest();
+        // 생성
+        xhr.open("get", "https://jsonplaceholder.typicode.com/users");
+        // 갈 준비(방식, 목적지)
+        xhr.send();
+        // 가라!
+        xhr.onload = function(){
+            console.log(xhr.responseText); //String값
+            let data = JSON.parse(xhr.responseText);
+            console.log(data);
+
+            let data1 = data[0];
+            // data1["phone"];
+            console.log(data1.phone);
+            // json의 0번째 배열에서 phone이라는 요소 선택
+
+            let data2 = data[1];
+            console.log(data2.name)
+
+            let data3 = data[2];
+            console.log(data3["email"])
+        }
+        // 전달인자는 하나다?
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

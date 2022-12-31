@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.border {
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let div1 = document.createElement("div");
+            let p1 = document.createElement("p");
+            let a1 = document.createElement("a");
+            a1.setAttribute("href", "http://naver.com");
+            a1.setAttribute("target", "_blank");
+            a1.innerHTML = "네이버";
+            p1.append(a1);
+
+
+            p1.setAttribute("class", "red");
+            p1.setAttribute("class", "green");
+            p1.classList.add("red");
+            p1.classList.remove("green");
+
+
+            p1.style.backgroundColor = "yellow";
+
+            div1.setAttribute("id", "div1");
+            div1.setAttribute("id", "div1-1");
+            div1.setAttribute("id", "");
+            div1.setAttribute("readonly", "readonly");
+            div1.removeAttribute("readonly");
+            div1.removeAttribute("id");
+            let val = div1.getAttribute("id");
+            console.log(val);
+
+
+
+            let div0 = document.getElementById("wrap");
+            div0.append(div1, p1);
+            // div0.appendChild(p1);
+
+
+
+
+
+            // let html = "";
+            // html += "<div></div>";
+            // html += "글씨2";
+            // html += "<p></p>";
+            // div0.innerHTML = html;
+            // createElement보다는 html에 값 넣고 innerHTML을 사용하는 방법을 사용한다.
+
+            let div_inner = document.querySelector("#wrap");
+            let p_outer = div_inner.parentNode;
+            p_outer.querySelector("#wrap")
+            p_outer.classList.add("border");
+
+            
+
+        }
+        
+    
+    
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+</html>

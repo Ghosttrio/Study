@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .div {
+            border : 1px solid red;
+            margin:5px 0;
+            height: 250px;
+        }
+        .bg_1 {
+            background-image: url("http://poiemaweb.com/img/bg/dot.png");
+             /* background-repeat: repeat-x; 
+            background-image: url("../assets/image/logo.png"); */
+        }
+        .bg_2{
+            background-repeat: repeat-x;
+        }
+        .bg_3{
+            background-repeat: no-repeat;
+        }
+        .bg_0{
+            background-image: url("http://poiemaweb.com/img/bg/dot.png");
+        }
+        .bg_4{
+            background-size: 25% 25%;
+        }
+        .bg_cover{
+            background-image : url("https://poiemaweb.com/img/bg/photo-1.jpeg");
+            background-size: cover;
+            width:30%;
+            height:200px;
+        }
+        .bg_contain{
+            background-image: url("https://poiemaweb.com/img/bg/photo-1.jpeg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 100px;
+            height: 100px;
+            background-position: center;
+            
+
+        }
+        .bg_p_b {
+            background-position: center;
+        }
+        .align p, .align span {
+            border : 1px solid red;
+            text-align: center;
+            /* 공간 안에서 가운데 정렬 */
+        }
+        .overflow{
+            width:100px;
+            white-space: nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            /* 한줄인 경우에만 표현이 가능 */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="div bg_1">
+        Background image
+    </div>
+    <div class="div bg_1 bg_2">
+        Background repeat : repeat-x
+    </div>
+    <div class="div bg_1 bg_2">
+        Background-repeat : no-repeat
+    </div>
+    <div class="div bg_0">
+        background-image 2개
+    </div>
+
+    <div class="div bg_1 bg_4">
+        background-size
+    </div>
+    
+    <div class="div bg_cover">
+        background-size: cover
+    </div>
+
+    <div class="div bg_contain">
+        background-size:contain
+    </div>
+
+    <div class="div bg_1 bg_3 bg_p_b">
+        background-position
+    </div>
+    
+    <div class="div align">
+        <p>
+            p tag
+        </p>
+        <span>
+            span tag
+        </span>
+        <div style="text-align: center;">
+            <div style="width: 100px; border:1px solid red; margin: 0 auto;">
+                inner div
+            </div>
+            <div style="width: 100px; border:1px solid red; display:inline-block;">
+                inner div2
+            </div>
+        </div>
+    </div>
+
+    <div class="div overflow" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt veniam ex, molestias itaque, soluta repellendus ducimus quisquam tenetur animi hic excepturi. Cumque blanditiis repellat et quis, beatae alias hic quam. ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt veniam ex, molestias itaque, soluta repellendus ducimus quisquam tenetur animi hic excepturi. Cumque blanditiis repellat et quis, beatae alias hic quam. 
+    </div>
+</body>
+</html>

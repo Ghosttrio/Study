@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .result2 {
+            height: 50px;
+            background-color: gray;
+        }
+        .red {
+            background-color: red;
+            color: white;
+        }
+        .green {
+            background-color: #00ff00;
+            color: #000000;
+        }
+        .blue {
+            background-color: rgb(0, 0, 255);
+            color: rgb(255, 255, 255);
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            // 확인 버튼을 클릭하면(click event)
+            let btn1 = document.getElementById("btn1");
+            btn1.addEventListener("click", function(){
+                // input의 값을 읽어서
+                let input1 = document.querySelector("#birth");
+                let value1 = input1.value;
+                console.log("입력값 : ", value1);
+                
+                // 나이를 계산하고 (올해 - 출생년도 + 1)
+                let result1 = ( new Date().getFullYear() ) - value1 + 1;
+                console.log("결과값 : ", result1);
+
+                // 출력
+                document.querySelector("#result1").innerHTML = result1;
+            });
+
+            // 2번 문제
+            // class 조작
+            // let DOM = document.querySelector("...")
+            // DOM.classList.add("red") // class red 추가
+            // DOM.classList.remove("red") // class red 제거
+            // DOM.classList.toggle("red") // class red가 있으면 제거, 없으면 추가
+            // DOM.classList.contains("red") // class중에 red가 있는지 여부
+
+            // DOM.setAttribute("class", "result2 red") // 속성 class의 값 덮어쓰기
+
+            // 1. 각 버튼을 클릭하면(event)
+            let btn2_1 = document.getElementById("btn2-1");
+            console.log(">>>", btn2_1);
+            btn2_1.addEventListener("click", function(){
+                console.log("btn2_1 클릭");
+                // 2. #result2 선택하고
+                let r2 = document.getElementsByClassName("result2");
+                r2 = r2[0];
+
+                // 3. 버튼에 해당하는 색으로 변경(#result2의 class)
+                r2.classList.add("red");
+                r2.classList.remove("green");
+                r2.classList.remove("blue");
+            })
+
+            let btn2_2 = document.querySelector("#btn2-2");
+            btn2_2.addEventListener("click", function(event){
+                console.log("btn2_2 클릭");
+                let r2 = document.getElementsByClassName("result2");
+                r2 = r2[0];
+
+                // r2.classList.add("green");
+                // r2.classList.remove("red");
+                // r2.classList.remove("blue");
+
+                let btns = document.querySelectorAll(".btn");
+                for(let i=0; i<btns.length; i++){
+                    let color = btns[i].getAttribute("data-color-class");
+                    r2.classList.remove(color);
+                }
+
+                // let btn = document.querySelector("#btn2-2");
+                let btn = event.target;
+                let color_class = btn.getAttribute("data-color-class");
+                console.log(">>>", color_class)
+                r2.classList.add(color_class);
+
+            })
+
+            let btn2_3 = document.querySelector("#btn2-3");
+            btn2_3.addEventListener("click", function(){
+                console.log("btn2_3 클릭");
+                let r2 = document.getElementsByClassName("result2");
+                r2 = r2[0];
+                // r2.classList.add("blue");
+                // r2.classList.remove("red");
+                // r2.classList.remove("green");
+
+
+                let btns = document.querySelectorAll(".btn");
+                for(let i=0; i<btns.length; i++){
+                    let color = btns[i].getAttribute("data-color-class");
+                    r2.classList.remove(color);
+                }
+
+                let btn = document.querySelector("#btn2-3");
+                let color_class = btn.getAttribute("data-color-class");
+                console.log(">>>", color_class)
+                r2.classList.add(color_class);
+
+            })
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>나이 계산</h1>
+        <h2>
+            출생년도를 입력(input)하고 확인 button을 누르면<br>
+            몇살인지 출력<br>
+            (올해 - 출생년도 + 1)
+        </h2>
+        <div>
+            <input type="text" id="birth">
+            <button type="button" id="btn1">확인</button>
+        </div>
+        <div>
+            당신은 <span id="result1">-1</span> 살입니다
+        </div>
+    </div>
+    <div>
+        <h1>색 변경</h1>
+        <h2>
+            버튼(3개)에 따라 배경색과 폰트색이 변경되는 것<br>
+            미리 css는 만들어 놓고 class를 변경하면서 적용
+        </h2>
+        <div>
+            <div class="result2 ">
+                취업 성공 기원!!
+            </div>
+            <button type="button" id="btn2-1" class="btn" data-color-class="red">red</button>
+            <button type="button" id="btn2-2" class="btn" data-color-class="green">green</button>
+            <button type="button" id="btn2-3" class="btn" data-color-class="blue">blue</button>
+            <button type="button" id="btn2-4" class="btn" data-color-class="yellow">yellow</button>
+        </div>
+    </div>
+</body>
+</html>

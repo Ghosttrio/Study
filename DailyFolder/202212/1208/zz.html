@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 생성
+        let xhr = new XMLHttpRequest();
+        
+        let url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst";
+        url += "?";
+        url += "serviceKey=qVTaW2lslPLGXY2uHKVY3Vuc66ZQmC950RmMKYEg4Grvfz%2FeYbsd%2Fp4F0CzdQQwC26aBf2fTEHW76VU0OA04RQ%3D%3D";
+        url += "&";
+        url += "numOfRows=100";
+        url += "&";
+        url += "pageNo=1";
+        url += "&";
+        url += "dataType=JSON";
+        url += "&";
+        url += "base_date=20221207";
+        url += "&";
+        url += "base_time=0700";
+        url += "&";
+        url += "nx=63";
+        url += "&";
+        url += "ny=100";
+        console.log(url)
+
+        // 준비-open 정보 입력
+        xhr.open("get", url);
+        // 실행
+        xhr.send();
+
+        // load 후
+        xhr.onload = function(){
+            // xhr.responseText : 응답 내용이 들어있음
+
+            // console.log(xhr.responseText);
+            let data = JSON.parse(xhr.responseText);
+            console.log(data.response.body.items.item[55])
+
+            for(let info of data.response.body.items.item){
+                if(info.category == "REH"){
+                    console.log(info.fcstTime +":"+ info.fcstValue);
+                }
+            }
+            console.log("--------------")
+            let data2 = data.response.body.items.item.filter(function(item){
+                return item.category == "T1H"
+            })
+            data2.map(function(item2){
+                console.log(item2.fcstTime +":"+ item2.fcstValue);
+            })
+        }
+
+
+
+        window.onload = function(){
+            let mem1 = [".", "김범주", "최귀범", "황다영", "최진표", "박창순"];
+            let mem2 =  ["윤병서", "이용준", ".", "이경용", "김세진", "이윤선"];
+
+            let members = [ mem1, mem2 ];
+            
+            console.log(members.length == 2)
+
+            /*
+            <tr>
+                <td>.</td>
+                <td>김범주</td>
+                <td>최귀범</td>
+                <td>황다영</td>
+                <td>최진표</td>
+                <td>박창순</td>
+            </tr>
+            */
+            let html = "";
+            html += "<tr><td colspan='6'>강사</td></tr>";
+            // 한줄씩
+            for(let i=0; i<members.length; i++){
+                html += "<tr>";
+                // 한줄에 있는 한명씩
+                for(let j=0; j<members[i].length; j++){
+                    html += "<td>"+ members[i][j] +"</td>";
+                }
+                html += "</tr>";
+            }
+
+            document.querySelector("#tbody").innerHTML = html;
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</body>
+</html>

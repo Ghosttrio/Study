@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let xhr = new XMLHttpRequest();
+        let url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst";
+        url += "?";
+        // ?로 구분해서 key value 값을 보내겠다
+        url += "serviceKey=WBr28mekYd5PPj%2FX37EMeQ3IULgBIcc7jV3p%2F1yQBc4jvT2BPs4JxAxGusA8O7LCrojnwykHxxDNJcGCKf4Beg%3D%3D";
+        // 인증키
+        url += "&";
+        // &는 다른 key value를 붙일 수 있게 된다.
+        url += "numOfRows=100";
+        url += "&";
+        url += "pageNo=1";
+        url += "&";
+        url += "dataType=JSON";
+        url += "&";
+        url += "base_date=20221206";
+        url += "&";
+        url += "base_time=0400";
+        url += "&";
+        url += "nx=63";
+        url += "&";
+        url += "ny=100";
+
+        xhr.open("get", url);
+        xhr.send();
+
+        xhr.onload = function() {
+            // console.log(xhr.responseText);
+            let data = JSON.parse(xhr.responseText);
+            console.log(data.response.body.items.item[55]);
+
+
+            // 방법1
+            for(let info of data.response.body.items.item){
+                if(info.category == "REH"){
+                    console.log(info.fcstTime + ":" + info.fcstValue);
+                }
+            }
+
+            // 방법2
+            let data2 = data.response.body.items.item.filter(function(item){
+                return item.category == "REH"
+            })
+            data2.map(function(item2){
+                console.log(item2.fcstTime + ":" + item2.fcstValue);
+            })
+
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

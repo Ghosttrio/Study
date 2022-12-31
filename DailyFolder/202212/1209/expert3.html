@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            background-color: tomato;
+            padding: 30px 0;
+            text-align: center;
+            color: #ffffff;
+        }
+        /*
+            개별로 주다가 공통으로 주기로 해서
+            주석처리
+        */
+        
+        /* #btn1 {
+            background-color: tomato;
+            border-width: 0;
+            height: 30px;
+            width: 25%;
+        }
+        #btn2 {
+            background-color: #555;
+            border-width: 0;
+            height: 30px;
+            width: 25%;
+        } */
+        #btns {
+            font-size: 0
+        }
+        .btn {
+            background-color: #555;
+            border-width: 0;
+            height: 30px;
+            width: 25%;
+            color: rgb(255, 255, 255);
+        }
+
+        .tomato {
+            background-color: tomato !important;
+        }
+        .darkolivegreen {
+            background-color: darkolivegreen !important;
+        }
+        .dodgerblue {
+            background-color: dodgerblue !important;
+        }
+        .orange {
+            background-color: orange !important;
+        }
+
+    </style>
+    <script>
+        /*
+        윗영역
+        아랫영역
+            버튼(역할을 하는) 4개(짙은회색) : 옆으로 배치
+            버튼을 누르면 
+                윗 영역의 "색"과 "글" 변경
+                자신의 "색" 변경
+            버튼에 hover시 옅은 회색으로 변경
+                색이 이미 있는 버튼은 hover에서 제외
+        */
+        let title = [];
+        let desc = [
+            "Custom Software Development Company",
+            "building...",
+            "ML AI cloud...",
+            "You Can Download..."
+        ]
+
+        window.onload = function(){
+            
+            // 전체 문서 중에서
+            // 속성명 id의 값이 정확히 btn1인 dom을 선택
+            // click 이벤트가 발생하면
+            // 뭔가를 실행한다
+
+            // 확인 된것이라 주석처리
+            // console.log(document.querySelector("#btn1"))
+            // document.querySelector("#btn1").addEventListener("click", function(){
+            //     //    console.log("버튼 클릭");
+            //     let main = document.querySelector("#main");
+            //     // // js 직접 색 변경
+            //     // main.style.backgroundColor = "tomato";
+
+            //     // 기존에 다른 버튼에서 적용한 클래스를 지워줌
+            //     main.classList.remove("darkolivegreen");
+            //     main.classList.remove("dodgerblue");
+            //     main.classList.remove("orange");
+
+            //     // 색이 지정된 class를 주는 방식
+            //     main.classList.add("tomato");
+
+
+            //     // 다른 버튼들; 모든 버튼들
+            //     let btns = document.querySelectorAll(".btn");
+            //     // 하나하나마다
+            //     btns.forEach(function(btn){
+            //         // 추가됬던 class를 제거
+            //         btn.classList.remove( btn.getAttribute("data-c") )
+            //     });
+            //     event.target.classList.add("tomato");
+                
+            // });
+
+            // // 두번째 버튼도 적용
+            // let btn2 = document.querySelector("#btn2");
+            // btn2.addEventListener("click", function(event){
+            //     let main = document.querySelector("#main");
+
+            //     // 기존에 다른 버튼에서 적용한 클래스를 지워줌
+            //     main.classList.remove("tomato");
+            //     main.classList.remove("dodgerblue");
+            //     main.classList.remove("orange");
+
+            //     // 색이 지정된 class를 주는 방식
+            //     main.classList.add("darkolivegreen");
+
+            //     // 다른 버튼들; 모든 버튼들
+            //     let btns = document.querySelectorAll(".btn");
+            //     // 하나하나마다
+            //     btns.forEach(function(btn){
+            //         // 추가됬던 class를 제거
+            //         btn.classList.remove( btn.getAttribute("data-c") )
+            //     })
+
+            //     // 버튼 선택 방법
+            //     /*
+            //     // 1. 새롭게 선택
+            //     document.querySelector("#btn2")
+            //     // 2. 이벤트 걸때 변수에 담아뒀던 변수 활용(주의해야함-변수 활용을 못하는 경우도 있다)
+            //     btn2
+            //     // 3. event
+            //     event.target
+            //     // 4. this
+            //     this
+            //     */
+            //     event.target.classList.add("darkolivegreen");
+
+            // });
+
+
+            // // 세번째 버튼인데.. 반복할만 패턴이 보이기 시작
+            // document.querySelector("#btn3").addEventListener("click", function(event){
+            //     let main = document.querySelector("#main");
+
+            //     // 기존에 다른 버튼에서 적용한 클래스를 지워줌
+            //     main.classList.remove("tomato");
+            //     main.classList.remove("darkolivegreen");
+            //     main.classList.remove("dodgerblue");
+            //     main.classList.remove("orange");
+
+            //     // 색이 지정된 class를 주는 방식
+            //     let cls = this.getAttribute("data-c");
+            //     main.classList.add( cls );
+
+            //     // 다른 버튼들; 모든 버튼들
+            //     let btns = document.querySelectorAll(".btn");
+            //     // 하나하나마다
+            //     btns.forEach(function(btn){
+            //         // 추가됬던 class를 제거
+            //         btn.classList.remove( btn.getAttribute("data-c") )
+            //     })
+
+            //     event.target.classList.add( cls );
+
+            // });
+
+            
+            // // 세번째꺼 복사해서 네번째 버튼
+            // document.querySelector("#btn4").addEventListener("click", function(event){
+            //     let main = document.querySelector("#main");
+
+            //     // 기존에 다른 버튼에서 적용한 클래스를 지워줌
+            //     main.classList.remove("tomato");
+            //     main.classList.remove("darkolivegreen");
+            //     main.classList.remove("dodgerblue");
+            //     main.classList.remove("orange");
+
+            //     // 색이 지정된 class를 주는 방식
+            //     let cls = this.getAttribute("data-c");
+            //     main.classList.add( cls );
+
+            //     // 다른 버튼들; 모든 버튼들
+            //     let btns = document.querySelectorAll(".btn");
+            //     // 하나하나마다
+            //     btns.forEach(function(btn){
+            //         // 추가됬던 class를 제거
+            //         btn.classList.remove( btn.getAttribute("data-c") )
+            //     })
+
+            //     event.target.classList.add( cls );
+
+            // });
+
+
+            let btns = document.querySelectorAll(".btn");
+            btns.forEach(function(btn){
+                btn.addEventListener("click", function(event){
+                    let main = document.querySelector("#main");
+
+                    // 기존에 다른 버튼에서 적용한 클래스를 지워줌
+                    main.classList.remove("tomato");
+                    main.classList.remove("darkolivegreen");
+                    main.classList.remove("dodgerblue");
+                    main.classList.remove("orange");
+
+                    // 색이 지정된 class를 주는 방식
+                    let cls = this.getAttribute("data-c");
+                    main.classList.add( cls );
+
+                    // 다른 버튼들; 모든 버튼들
+                    let btns = document.querySelectorAll(".btn");
+                    // 하나하나마다
+                    btns.forEach(function(btn){
+                        // 추가됬던 class를 제거
+                        btn.classList.remove( btn.getAttribute("data-c") )
+                    })
+
+                    event.target.classList.add( cls );
+
+                    // 글씨 변경
+                    let index = this.getAttribute("data-index");
+                    // console.log(desc[index]);
+
+                    document.querySelector("#main p").innerHTML = desc[index];
+                    document.querySelector("#main h1").innerHTML = this.innerText;
+                    
+                });
+
+                // hover
+                btn.addEventListener("mouseenter", function(){
+                    // console.log(123)
+                    // TODO: if로 색이 미리 지정되어 있지 않은 경우에만 적용해야겠다
+                    this.style.backgroundColor = "#777";
+                })
+                // hover였다가 마우스 나오면
+                btn.addEventListener("mouseout", function(){
+                    // console.log(123)
+                    this.style.backgroundColor = "#555";
+                })
+            })
+
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <div id="main">
+        <h1>About</h1>
+        <p>Custom Software Development Company</p>
+    </div>
+    <div id="btns">
+        <button type="button" id="btn1" class="btn tomato" data-c="tomato" data-index="0"  data-desc="Custom Software Development Company">About</button>
+        <button type="button" id="btn2" class="btn" data-c="darkolivegreen" data-index="1" data-desc="ML tech..">Products</button>
+        <button type="button" id="btn3" class="btn" data-c="dodgerblue" data-index="2">Technology</button>
+        <button type="button" id="btn4" class="btn" data-c="orange" data-index="3">Downloads</button>
+    </div>
+</body>
+</html>

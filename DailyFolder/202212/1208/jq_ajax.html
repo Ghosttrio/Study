@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        
+        let url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst";
+        url += "?";
+        // 주소 끝에 ?로 구분해서 key value 값을 보내겠다
+        url += "serviceKey=WBr28mekYd5PPj%2FX37EMeQ3IULgBIcc7jV3p%2F1yQBc4jvT2BPs4JxAxGusA8O7LCrojnwykHxxDNJcGCKf4Beg%3D%3D";
+        // 인증키
+        url += "&";
+        // &는 다른 key value를 붙일 수 있게 된다.
+        url += "numOfRows=100";
+        url += "&";
+        url += "pageNo=1";
+        url += "&";
+        url += "dataType=JSON";
+        url += "&";
+        url += "base_date=20221206";
+        url += "&";
+        url += "base_time=0400";
+        url += "&";
+        url += "nx=63";
+        url += "&";
+        url += "ny=100";
+
+
+        // 방법 1
+        let option = {
+            "url" : url,
+            "type" : "get"
+        }
+        $.ajax(option).done(function(data){
+            console.log(data);
+        }).fail(function(err){
+            console.log(err);
+        }).always(function(){
+            console.log("완료");
+            // 에러가 났든 안났든 표시
+        });
+
+
+        // 방법2
+        let option2 = {
+            "url" : url,
+            "type" : "get",
+            "success" : function(data){
+                console.log(data);
+            },
+            // success === done
+            "error" : function(data){
+                console.log(data);
+            },
+            // error === fail
+            "complete" : function(data){
+                console.log("완료")
+            }
+        }
+        $.ajax(option2);
+
+        // or
+        $.ajax({"url" : url,
+            "type" : "get",
+            "success" : function(data){
+                console.log(data);
+            },
+            // success === done
+            "error" : function(data){
+                console.log(data);
+            },
+            // error === fail
+            "complete" : function(data){
+                console.log("완료")
+            }
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

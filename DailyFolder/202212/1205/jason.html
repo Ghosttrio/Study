@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = () => {
+            let j = {
+                "k" : "v",
+                "i" : 5,
+                "j2" : {
+                    "k" : "v2"
+                }
+            }
+            console.log(j);
+            console.log(j["k"]);
+            console.log(j.k);
+            // .k를 더 많이 쓴다.
+            console.log(j.j2.k);
+            j.k = "v3";
+            console.log(j.k);
+            // 덮어쓴다
+            j.k2 = "v4";
+            console.log(j);
+
+            let str = JSON.stringify(j);
+            console.log(str);
+            let j2 = JSON.parse(str);
+            console.log(j2)
+            // 이 두가지가 가장 많이쓰이는 json 내장 메소드
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+            xhr.send();
+            // status code: 200 -> 정상 / 400번대 ->주소를 잘못적었다
+            xhr.onload = function(){
+                console.log(xhr.responseText);
+                let data = JSON.parse(xhr.responseText);
+                console.log(data[0].name);
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

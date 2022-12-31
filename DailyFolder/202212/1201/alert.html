@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // alert("alert창");
+        // 화면에 alert이 나오는 순간 확인을 누를 때까지 모든 것이 멈춘다.
+        
+        // confirm("confirm창");
+        // 확인/취소 창 / 확인 누르면 true리턴, 취소 누르면 false가 리턴
+        
+        // let r2 = prompt("입력");
+        // console.log(r2);
+
+    </script>
+</head>
+<body>
+    <div id="div1" name="name1" class="red bold">
+        있는상태
+    </div>
+    <script>
+        // document.getElementById("div1").innerHTML = "<strong>바뀐상태</strong>";
+        document.getElementById("div1").innerText = "<strong>바뀐상태</strong>";
+        document.getElementsByName("name1"); //dom배열
+        // Name은 결과가 DOM 배열이다.
+        document.getElementsByClassName("bold"); //dom배열
+        document.getElementsByTagName("div");
+        document.querySelector("#div1 > div") //css 선택자 , dom하나만
+        document.querySelectorAll(".red") // 포함된 모든 dom배열
+    
+    </script>
+</body>
+</html>

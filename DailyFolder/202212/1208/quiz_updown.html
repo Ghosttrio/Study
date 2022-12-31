@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            let random = parseInt(Math.random() * 40 + 10);
+            console.log(random);
+            
+            document.querySelector("#btn1").addEventListener("click", function(){
+                
+                let a = "";
+                if (random > document.querySelector("#text").value) {
+                    a = "up";
+                } else if (random < document.querySelector("#text").value) {
+                    a = "down"
+                } else if (random == document.querySelector("#text").value){
+                    a = "정답"
+                } else {
+                    a = "다시 입력하시오"
+                }
+                document.querySelector("#result").innerHTML = a;
+            })
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        입력<input type="text" id="text">
+    </div>
+    <button type="button" id="btn1">확인</button>
+    <div id="result">
+        결과
+    </div>
+</body>
+
+</html>

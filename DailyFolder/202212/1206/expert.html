@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .result2 {
+            height: 50px;
+            background-color: gray;
+        }
+
+        .red {
+            background-color: red;
+            color: white;
+        }
+
+        .green {
+            background-color: green;
+            color:black;
+        }
+
+        .blue {
+            background-color: blue;
+            color:white;
+        }
+    </style>
+    <script>
+        // 확인 버튼을 클릭하면 (click event를 쓰겠다.)
+        // input의 값을 읽어서
+        // 나이를 계산하고 출력
+
+        window.onload = function () {
+            document.querySelector("#btn1").addEventListener("click", function () {
+                let year = document.querySelector("#birth").value;
+                let result = (new Date().getFullYear()) - year + 1
+                // let result = (2022 - year + 1);
+                document.querySelector("#result").innerHTML = "당신은 " + result + "살 입니다.";
+            })
+        }
+
+        // 2번문제
+        // class 조작
+        // DOM.classList.add("red") // class red 추가
+        // DOM.classList.remove("red") // class red 제거
+        // DOM.classList.toggle("red") // class red 있으면 제거 없으면 추가
+        // DOM.classList.contains("red") // class중에 red 있는지 없는지 true false로 나옴
+
+        // DOM.setAttribute("class", "result2 red") // 속성 class의 값 덮어쓰기
+        window.onload = function () {
+            
+            document.querySelector("#btn2-1").addEventListener("click", function () {
+                let a = document.querySelector(".result2");
+                a.classList.add("red");
+                a.classList.remove("green");
+                a.classList.remove("blue");
+            })
+            document.querySelector("#btn2-2").addEventListener("click", function () {
+                let a = document.querySelector(".result2");
+                a.classList.add("green");
+                a.classList.remove("red");
+                a.classList.remove("blue");
+            })
+            document.querySelector("#btn2-3").addEventListener("click", function () {
+                let a = document.querySelector(".result2");
+                a.classList.add("blue");
+                a.classList.remove("red");
+                a.classList.remove("green");
+            })
+            document.querySelector("#reset").addEventListener("click", function(){
+                let a = document.querySelector(".result2");
+                a.classList.remove("red");
+                a.classList.remove("green");
+                a.classList.remove("blue");
+            })
+
+        }
+
+        // 전체를 덮어쓰는 방법 어트리뷰트
+
+
+    </script>
+
+
+</head>
+
+<body>
+    <div>
+        <h1>나이 계산</h1>
+        <h2>
+            출생년도를 입력(input)하고 확인 button을 누르면<br>
+            몇살인지 출력<br>
+            (올해 - 출생년도 + 1)
+        </h2>
+        <div>
+            <input type="text" id="birth">
+            <button type="button" id="btn1">확인</button>
+        </div>
+        <div id="result">
+        </div>
+
+    </div>
+
+
+    <div>
+        <h1>색 변경</h1>
+        <h2>버튼(3개)에 따라 배경색과 폰트색이 변경되는 것<br>
+            미리 css는 만들어 놓고 class를 변경하면서 적용
+        </h2>
+        <div>
+            <div class="result2">
+                취업 성공 기원!!
+            </div>
+            <button type="button" id="btn2-1">red</button>
+            <button type="button" id="btn2-2">green</button>
+            <button type="button" id="btn2-3">blue</button>
+            <button type="button" id="reset">초기화</button>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

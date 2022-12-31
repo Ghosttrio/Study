@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            1. 
+            TODO List
+            input에 글 쓰고 [추가]
+            1-1. 아래쪽에 하나씩 쌓기
+            1-2. "삭제"버튼 누르면 그것만 삭제
+        */
+
+
+       window.onload = function(){
+            let target_id = 0;
+
+            let btn1 = document.querySelector("#btn1");
+            btn1.addEventListener("click", function(){
+                let input1 = document.querySelector("#input1");
+                // console.log(input1.value)
+                let div1 = document.querySelector("#div1");
+                // console.log(div1.innerHTML)
+
+                // // 기존 inner값을 변경해버림
+                // div1.innerHTML = input1.value;
+                
+                // 윗 방법 말고 유지하면서 추가
+                // div1.innerHTML = div1.innerHTML + input1.value;
+                let html = "";
+                html += "<div id='target_"+ target_id +"'>";
+                html += "     <br>";
+                html +=       input1.value
+                html += "     <button type='button' class='btn_del' data-divid='target_"+ target_id +"'>삭제</button>"
+                html += "</div>";
+                div1.innerHTML += html;
+
+                target_id++;
+
+                let btn_dels = document.querySelectorAll(".btn_del");
+                for(let i=0; i<btn_dels.length; i++){
+                    btn_dels[i].addEventListener("click", function (){
+                        // console.log(i +"번째 삭제버튼 클릭");
+                        // console.log(this)
+
+                        // // 내가 뭘 지울지 적어놓고 활용
+                        // let divId = this.getAttribute("data-divid");
+                        // let parent_div = document.querySelector("#"+divId);
+                        // console.log(parent_div)
+                        // parent_div.remove();
+
+                        // console.log(this.parentNode)
+                        this.parentNode.remove();
+                    });
+                }
+            })
+            // 1번 문제 끝
+
+            // 2번 문제 시작
+            document
+            .querySelector("#chk2")
+            .addEventListener("click", function(){
+                if(this.checked){
+                    // console.log("체크 되어있음")
+                    let i21 = document.querySelector("#input2-1").value;
+                    document.querySelector("#output2-1").value = i21;
+
+                    let i22 = document.querySelector("#input2-2").value;
+                    document.querySelector("#output2-2").value = i22;
+
+                    let i23 = document.querySelector("#input2-3").value;
+                    document.querySelector("#output2-3").value = i23;
+                } else {
+                    // console.log("체크 풀림")
+                    document.querySelector("#output2-1").value = "";
+                    document.querySelector("#output2-2").value = "";
+                    document.querySelector("#output2-3").value = "";
+                }
+            })
+            document.querySelector("#btn2").addEventListener("click", ()=>{
+                let i21 = document.querySelector("#input2-1").value;
+                let i22 = document.querySelector("#input2-2").value;
+                let i23 = document.querySelector("#input2-3").value;
+                alert("이름 : "+ i21 +"\n주소 : "+ i22 +"\n연락처 : "+ i23);
+            })
+
+            document.querySelector("#btn3").addEventListener("click", ()=>{
+                let val3 = document.querySelector("input[name=radio3]:checked").value
+                console.log(val3)
+            })
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>TODO List</h1>
+        <input type="text" id="input1" value="미리완성"><button type="button" id="btn1">추가</button>
+        <div id="div1">asdf</div>
+    </div>
+<!--
+
+2.
+주문자
+이름, 주소, 연락처
+ㅁ주문자와 동일
+배송정보
+이름, 주소, 연락처
+[결제하기]
+2-1. ㅁ주문자와 동일 : 체크하면 배송정보도 전부 완성
+2-2. 아래 결제 버튼
+결제버튼 클릭 시 alert으로 모든 정보 표시
+
+-->
+    <div>
+        <h1>배송 정보</h1>
+        <h2>주문자 정보</h2>
+        이름: <input type="text" id="input2-1" data-name="이름"><br>
+        주소: <input type="text" id="input2-2"><br>
+        연락처: <input type="text" id="input2-3"><br>
+        <hr>
+        <h2>배송 정보</h2>
+        <input type="checkbox" id="chk2" value="1">주문자와 동일<br>
+        이름: <input type="text" id="output2-1"><br>
+        주소: <input type="text" id="output2-2"><br>
+        연락처: <input type="text" id="output2-3"><br>
+        <hr>
+        <input type="button" value="결제" id="btn2">
+    </div>
+
+    <div>
+        <div>
+            <input type="radio" name="radio3" value="1">
+            <span>1번</span><br>
+        </div>
+        <div>
+            <input type="radio" name="radio3" value="num_2">2번<br>
+            <span>2번</span><br>
+        </div>
+        <input type="radio" name="radio3" value="3번" data-price="5000">3번 5000<br>
+        <button type="button" id="btn3">확인</button>
+    </div>
+</body>
+</html>

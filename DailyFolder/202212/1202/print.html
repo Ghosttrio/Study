@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let a = new Array();
+        let a = [1,2,3];
+        console.log(a[0]); //0이라는 키값으로 가져온 것
+        console.log(a);
+        console.log(a.length);
+        a.push(4);
+        console.log(a);
+        
+        window.onload = function(){
+
+            let div1 = document.querySelector("#div1");
+            console.log(div1);   
+            console.log(div1.innerHTML);
+            // innerHTML은 돔에만 사용가능
+            let txt = document.querySelectorAll(".txt")
+            console.log(txt);
+            // console.log(txt.innerHTML);
+            console.log(txt[0].innerHTML);
+
+            let p1 = document.querySelector("p.txt");
+            let a2 = p1.querySelector(".a2");
+            console.log(a2.innerText);
+            a2.innerText = "google";
+            a2.style.color = "black";
+            console.log(a2.style.backgroundColor);
+            a2.style.backgroundColor = "yellow";
+            console.log(a2.style.backgroundColor);
+            console.log(document);
+
+            let a = 3;
+            let b = "3";
+            console.log(a == b);
+            console.log(a === b);
+            console.log(a != b);
+            console.log(a !== b);
+
+            let c = "abc";
+            switch(c){
+                case "abc" :
+                    console.log("abc");
+                    break;
+                defalut :
+                    console.log("not abc");
+            }
+
+            do {
+                console.log(a);
+                a++;
+            } while(a < 5)
+
+            let d = [4,5,6];
+            d.forEach( function(item, index, arr){
+                console.log(item, index, arr);
+            })
+            // forEach 문법
+            // 첫번째 값 두번째 인덱스 세번째 배열
+            
+            d.forEach( (item) => {
+                console.log(item);
+            })
+            d.forEach( item => console.log(item))
+            // arrow 연산자
+
+            for(let i of d){
+                console.log(i);
+            }
+            // for-of : 향상된 for문과 같다
+            // 단점 : 인덱스를 모른다
+
+            for(let i in d){
+                console.log(i);
+            }
+            // for-in으로 인덱스 파악가능
+
+            let e = {
+                "name" : "박창순",
+                "name2" : "박창순2",
+                "addr" : "천안시"
+            }
+            console.log( e.name );
+            console.log( e["addr"] );
+        }
+
+    </script>
+
+</head>
+<body>
+    F12를 통해 개발자 도구를 확인하세요
+    <div id="div1">
+        div1
+        
+        <p class="txt">
+            p1
+            <a class="txt a1" href="http://www.naver.com">네이버</a>
+            <a class="txt a2" href="http://www.google.com">구글</a>
+        </p>
+
+        <p class="txt2">
+            p2
+            <a class="txt a1" href="http://www.naver.com">네이버</a>
+            <a class="txt a2" href="http://www.naver.com">네이버</a>
+        </p>
+
+    </div>
+</body>
+</html>
