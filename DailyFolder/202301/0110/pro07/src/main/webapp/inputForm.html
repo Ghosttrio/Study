@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>입금화면</title>
+	<script>
+	window.onload = function(){
+		document.querySelector('input[name="btn"]').addEventListener("click", function(){
+			if(inForm.inMoney.value > 0){
+				alert("정상입금");
+				inForm.submit();
+			} else if(inForm.inMoney.value != 0 || inForm.inMoney.value <= 0 ) {
+				alert("값을 입력해주세요");
+			}
+		});
+	}
+	</script>
+</head>
+<body>
+	<form name="inForm" method="post" action="account" >
+		입력 : <input type="number" name="inMoney" value="0" >
+		<input type="button" name="btn" value="입금">
+		<br>
+		<br>
+		<a href='/pro07/account'>초기화면이동</a>
+		<input type="hidden" name="command" value="addMember" />
+	</form>
+	
+</body>
+</html>
