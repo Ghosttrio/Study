@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		.popup {
+			border : 1px solid red;
+			heigth : 100px;
+			background-color : green;
+			color : white;
+		}
+	</style>
+</head>
+<body>
+	<div class="popup">
+		종료하기 귀찮은 공지입니다.
+	</div>
+	
+	<button type="button" id="noshow">10초동안 공지 안보기</button>
+	<script>
+
+	if (document.cookie != ""){
+		let cookie = document.cookie.split(";");
+		for(let i=0; i<cookie.length; i++){
+			let item = cookie[i].split("=");
+			let key = item[0].replace(/^\s/, ""); // .trim()도 가능
+			let value = item[1];
+			if(key == "notShowPop"){
+				if(value == "true"){
+					document.querySelector(".popup").style.display = "none";
+				}
+			}
+		}
+	}
+	
+		document.querySelector("#noshow").addEventListener("click", function(){
+			let now = new Date(); // 현재시간
+			let after_10s = now.getSeconds() + 10; // 10초 뒤 시간
+			now.setSeconds(after_10s); // after_10s로 현재 초를 재설정
+			//10초짜리 쿠키 등록
+			document.cookie = "notShowPop=true;path=/;expires=" + now.toGMTString();
+		});
+		
+		
+	</script>
+</body>
+</html>
